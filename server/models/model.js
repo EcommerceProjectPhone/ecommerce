@@ -1,7 +1,8 @@
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('', '', '', {
+const sequelize = new Sequelize('commerce', 'nour', 'piratPG12', {
   host: 'localhost',
   dialect: 'mysql',
+  logging: false 
 });
 
 const User = sequelize.define('user', {
@@ -18,21 +19,26 @@ const User = sequelize.define('user', {
     type: Sequelize.ENUM('admin', 'seller', 'client'),
     defaultValue: 'client'
   },
-  imgUrl : {
+  profileUrl : {
     type: Sequelize.STRING,
     allowNull: false
-  }
+  },
+  coverUrl : {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  bio : Sequelize.STRING
 });
 
 const Product = sequelize.define('product', {
   name: {
-    type: DataTypes.STRING,
+    type: Sequelize.STRING,
     allowNull: false,
   },
-  description: DataTypes.STRING,
-  price: DataTypes.DECIMAL(10, 2),
-  stock: DataTypes.INTEGER,
-  cover: DataTypes.STRING,
+  description: Sequelize.STRING,
+  price: Sequelize.DECIMAL(10, 2),
+  stock: Sequelize.INTEGER,
+  cover: Sequelize.STRING,
 });
 
 const Rating = sequelize.define('rating', {
@@ -83,7 +89,7 @@ sequelize.sync()
     console.log('Database and tables created!');
   })
   .catch(error => {
-    console.error('Error', error);
+    console.log('Error',error);
   });
 
 module.exports = {
