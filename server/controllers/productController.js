@@ -14,28 +14,24 @@ const getAllProducts = (req, res) => {
 };
 
 // Create a new product
-const createProduct = async (req, res) => {
-    const { name, description, price, stock, cover } = req.body;
-  
-    try {
-      const uploadResult = await cloudinary.uploader.upload(cover, {
-        folder: "ecomphone"
-      });
-  
-      const newProduct = await Product.create({
-        name: name,
-        description: description,
-        price: price,
-        stock: stock,
-        cover: uploadResult.secure_url,
-      });
-  
-      res.json(newProduct);
-    } catch (error) {
+const createProduct = (req, res) => {
+  const { name, description, price, stock, imageUrl } = req.body;
+
+  Product.create({
+    name: name,
+    description: description,
+    price: price,
+    stock: stock,
+    imageUrl: imageUrl,
+  })
+    .then((product) => {
+      res.json(product);
+    })
+    .catch((error) => {
       console.error('Error creating product:', error);
       res.status(500).json({ error: 'Internal server error' });
-    }
-  };
+    });
+};
 
 // Update a product
 const updateProduct = (req, res) => {
