@@ -6,7 +6,7 @@ const Home = () => {
     <div>
       <Navbar/>
 <Product/>
-
+ 
 <h4 className='highest '>Highest Quality
 Collection</h4>
 <h6>Get Started</h6>
