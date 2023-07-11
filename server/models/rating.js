@@ -1,16 +1,15 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../database/db');
-const Client = require('./client');
 const Product = require('./product');
+const User = require('./user');
 
 const Rating = sequelize.define('rating', {
-  value: {
-    type: Sequelize.INTEGER,
-    allowNull: false
-  }
+  rating: DataTypes.INTEGER,
+  review: DataTypes.STRING,
+  createdAt: DataTypes.DATE,
 });
 
-Rating.belongsTo(User, { foreignKey: 'userId' });
-Rating.belongsTo(Product, { foreignKey: 'productId' });
+Rating.belongsTo(User);
+Rating.belongsTo(Product);
 
 module.exports = Rating;
