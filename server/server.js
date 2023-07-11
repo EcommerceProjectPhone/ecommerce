@@ -7,6 +7,9 @@ app.use(cors())
 const PORT = 3000
 
 
+const productRoute = require("./routes/product.routes")
+app.use("/product",productRoute)
+
 
 sequelize.authenticate()
   .then(() => {
