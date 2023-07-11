@@ -4,8 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "server-dev": "nodemon server/server.js"
+    "server-dev": "nodemon server/server.js",
+    "react-dev": "webpack --mode development --watch"
   },
   "author": "",
   "license": "ISC",
@@ -19,5 +19,9 @@
     "mysql2": "^3.5.1",
     "nodemon": "^3.0.1",
     "sequelize": "^6.32.1"
+  },
+  "devDependencies": {
+    "webpack": "^5.88.1",
+    "webpack-cli": "^5.1.4"
   }
 }
