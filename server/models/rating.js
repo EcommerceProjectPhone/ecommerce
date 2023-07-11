@@ -4,12 +4,13 @@ const Client = require('./client');
 const Product = require('./product');
 
 const Rating = sequelize.define('rating', {
-  rating: DataTypes.INTEGER,
-  review: DataTypes.STRING,
-  createdAt: DataTypes.DATE,
+  value: {
+    type: Sequelize.INTEGER,
+    allowNull: false
+  }
 });
 
-Rating.belongsTo(Client);
-Rating.belongsTo(Product);
+Rating.belongsTo(User, { foreignKey: 'userId' });
+Rating.belongsTo(Product, { foreignKey: 'productId' });
 
 module.exports = Rating;
