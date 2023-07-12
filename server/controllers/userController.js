@@ -1,7 +1,7 @@
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 
-// Controller methods
 const createUser = async (req, res) => {
   try {
     const { username, password, role, imgUrl } = req.body;
@@ -16,9 +16,15 @@ const login = async (req, res) => {
   try {
     const { username, password } = req.body;
     const user = await User.findOne({ where: { username } });
-    if (!user || user.password !== password) {
+    if (!user) {
       return res.status(401).json({ error: 'Invalid username or password' });
     }
+
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.status(401).json({ error: 'Invalid username or password' });
+    }
+
     const token = jwt.sign({ id: user.id, role: user.role }, 'secretKey');
     res.cookie('token', token, { httpOnly: true });
     res.json({ user });
@@ -40,9 +46,17 @@ const getUserById = async (req, res) => {
   }
 };
 
-// Export controller methods
+// Example of an authorized route based on role
+const getAdminData = (req, res) => {
+    if (req.user.role !== 'admin') {
+        return res.status(403).json({ error: 'Access denied' });
+      }
+  res.json({ message: 'Accessed admin route', user: req.user });
+};
+
 module.exports = {
   createUser,
   login,
   getUserById,
+  getAdminData
 };

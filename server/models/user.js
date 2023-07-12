@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../database/db');
-
+const bcrypt = require('bcrypt');
 
 const User = sequelize.define('user', {
   username: {
@@ -16,12 +16,16 @@ const User = sequelize.define('user', {
     type: Sequelize.ENUM('admin', 'seller', 'client'),
     defaultValue: 'client'
   },
-  imgUrl : {
+  imgUrl: {
     type: Sequelize.STRING,
     allowNull: false
   }
 });
 
-
+// Hash password before saving
+User.beforeCreate(async (user) => {
+  const salt = await bcrypt.genSalt(10);
+  user.password = await bcrypt.hash(user.password, salt);
+});
 
 module.exports = User;
