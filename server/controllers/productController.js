@@ -19,8 +19,9 @@ const getAllProducts = (req, res) => {
 
 // Create a new product
 const createProduct = async (req, res) => {
-    const { name, description, price, stock, imageUrl ,userId} = req.body;
-  
+    const { name, description, price, stock, imageUrl } = req.body;
+    // const { userId } = req.params;
+
     try {
       const uploadResult = await cloudinary.uploader.upload(imageUrl, {
         folder: "ecomphone"
@@ -32,7 +33,7 @@ const createProduct = async (req, res) => {
         price: price,
         stock: stock,
         imageUrl: uploadResult.secure_url,
-        userId: userId
+        // userId: userId,
       });
   
       res.json(newProduct);
@@ -40,8 +41,27 @@ const createProduct = async (req, res) => {
       console.error('Error creating product:', error);
       res.status(500).json({ error: 'Internal server error' });
     }
+    console.log(imageUrl);
   };
-
+// const createProduct = (req, res) => {
+//   const { name, description, price, stock, imageUrl } = req.body;
+//   const { userId } = req.params;
+//   Product.create({
+//     name: name,
+//     description: description,
+//     price: price,
+//     stock: stock,
+//     imageUrl: imageUrl,
+//     userId: userId
+//   })
+//     .then((product) => {
+//       res.json(product);
+//     })
+//     .catch((error) => {
+//       console.error('Error creating product:', error);
+//       res.status(500).json({ error: 'Internal server error' });
+//     }
+//   )}
 // Update a product
 const updateProduct = (req, res) => {
   const productId = req.params.id;

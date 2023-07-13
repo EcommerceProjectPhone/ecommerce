@@ -6,10 +6,12 @@ app.use(express.json());
 app.use(cors())
 const PORT = 3000
 
-
+////// rout of product
 const productRoute = require("./routes/product.routes")
 app.use("/product",productRoute)
-
+/////route of order
+const orderRoute = require("./routes/order.routes")
+app.use("/order",orderRoute)
 
 sequelize.authenticate()
   .then(() => {

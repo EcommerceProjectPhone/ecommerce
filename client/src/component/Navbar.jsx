@@ -39,7 +39,9 @@ const Navbar = () => {
             left: 15,
             top: 14,
             position: "absolute",
+            
           }}
+          alt=""
         ></img>
         <div
           className="SearchItemsFashionCollectionAndUsers"
