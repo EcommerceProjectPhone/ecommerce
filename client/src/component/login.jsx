@@ -5,7 +5,6 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import axios from 'axios';
-
 const Login = ({ handleLogin }) => {
   const navigate = useNavigate ();
   const [email, setEmail] = useState('');
@@ -20,9 +19,13 @@ const Login = ({ handleLogin }) => {
     try {
       const response = await axios.post('http://127.0.0.1:3000/users/login', { email, password });
       const token = response.data.token;
-      console.log(token)
       handleLogin(token);
-      navigate('/home');
+      var payload = JSON.parse(window.atob(token.split('.')[1])); 
+      console.log(payload.role);
+      if(payload.role === 'client'){
+        navigate('/home');
+      }
+     
     } catch (error) {
       console.error('Login Error:', error);
     }
