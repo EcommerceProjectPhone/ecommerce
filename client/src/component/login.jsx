@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Grid, Paper, Avatar, Typography, TextField, Button } from '@material-ui/core';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import axios from 'axios';
 
 const Login = ({ handleLogin }) => {
-  const history = useHistory();
+  const navigate = useNavigate ();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -18,10 +18,11 @@ const Login = ({ handleLogin }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/users/login', { email, password });
+      const response = await axios.post('http://127.0.0.1:3000/users/login', { email, password });
       const token = response.data.token;
+      console.log(token)
       handleLogin(token);
-      history.push('/home');
+      navigate('/home');
     } catch (error) {
       console.error('Login Error:', error);
     }

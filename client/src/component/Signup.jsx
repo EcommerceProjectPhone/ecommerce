@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Grid, Paper, Avatar, Typography, TextField, Button } from '@material-ui/core';
 import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
 import Radio from '@material-ui/core/Radio';
@@ -9,8 +10,8 @@ import FormLabel from '@material-ui/core/FormLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import axios from 'axios';
 
-const Signup = ({ handleLogin }) => {
-  const history = useHistory();
+const Signup = () => {
+  const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -25,10 +26,11 @@ const Signup = ({ handleLogin }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/users/register', { username, email, password, role, imgUrl });
+      const response = await axios.post('http://127.0.0.1:3000/users/register', { username, email, password, role, imgUrl });
       const token = response.data.token;
-      handleLogin(token);
-      history.push('/home');
+      console.log(token);
+
+      navigate('/login');
     } catch (error) {
       console.error('Register Error:', error);
     }
