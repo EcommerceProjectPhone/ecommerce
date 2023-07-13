@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './style.css';
 import axios from 'axios';
-// import Navbar from '../Navbar.jsx'
+import Footer from '../Footer.jsx';
+import Navbar from '../Navbar.jsx';
 const BuyProduct = () => {
   const [product, setProduct] = useState([]);
   const [search, setSearch] = useState([]);
@@ -38,7 +39,7 @@ const BuyProduct = () => {
 
   return (
     <div>
-      {/* <Navbar/> */}
+      <Navbar/>
       <div className="grid-item item2">
         <svg
           className="layout"
@@ -95,6 +96,7 @@ const BuyProduct = () => {
         })}
        
       </div>
+      <Footer/>
     </div>
   );
 };

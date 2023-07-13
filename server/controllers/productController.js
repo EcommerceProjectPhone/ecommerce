@@ -65,7 +65,7 @@ const createProduct = async (req, res) => {
 // Update a product
 const updateProduct = (req, res) => {
   const productId = req.params.id;
-  const { name, description, price, stock, imageUrl,userId } = req.body;
+  const { name, description, price, stock,userId } = req.body;
 
   Product.update(
     {
@@ -73,7 +73,7 @@ const updateProduct = (req, res) => {
       description: description,
       price: price,
       stock: stock,
-      imageUrl: imageUrl,
+      // imageUrl: imageUrl,
       userId: userId
     },
     {

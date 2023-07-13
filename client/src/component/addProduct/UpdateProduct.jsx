@@ -1,59 +1,37 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { useNavigate , useParams } from 'react-router-dom';
 import './style.css';
+import axios from 'axios';
 import Navbar from '../Navbar.jsx';
-import TbProduct from './TbProduct.jsx';
 
-const AddProduct = () => {
-  const [products, setProducts] = useState({
-    name: '',
-    description: '',
-    price: 0,
-    stock: 0,
-    imageUrl: null,
-  });
-  const navigate = useNavigate();
-  const handleChange = (e) => {
-    setProducts((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
-  const handleClick = async (e) => {
-    e.preventDefault();
-    try {
-      await axios.post('http://localhost:3000/product/add', products);
-      navigate('/product');
-    } catch (err) {
-      console.log(err);
+const UpdateProduct = () => {
+    const [products, setProducts] = useState({
+        name: '',
+        description: '',
+        price: 0,
+        stock: 0,
+        imageUrl: null,
+      });
+      const navigate = useNavigate();
+      const params = useParams()
+      console.log(params);
+      const handleChange = (e) => {
+        setProducts((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+      };
+      const updateProduct = async (e) => {
+        e.preventDefault();
+        try{
+           await axios.put(`http://localhost:3000/product/${params.id}`, products)
+           navigate('/product')
+
+        }catch (err) {
+            console.log(err);
+          } 
+        
     }
-  };
-  const handleImageUpload = async (e) => {
-    const file = e.target.files[0];
-    const form = new FormData();
-    form.append('file', file);
-    form.append('upload_preset', 'phoneProduct');
-
-    try {
-      const response = await axios.post(
-        'https://api.cloudinary.com/v1_1/dgcdmrj7x/image/upload',
-        form,
-        {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
-        }
-      );
-
-      const imageUrl = response.data.secure_url;
-      console.log(imageUrl);
-      setProducts((prev) => ({ ...prev, imageUrl: imageUrl }));
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   return (
     <div>
-      <Navbar />
+      <Navbar/>
       <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
 
       <form  className="w3-container w3-card-4 dvv" action="/action_page.php">
@@ -105,17 +83,16 @@ const AddProduct = () => {
           <label className="txxt">
             <h3>Photo :</h3>
           </label>
-          <input name="imageUrl" type="file" onChange={handleImageUpload} />
         </p>
         <p>
-          <button onClick={handleClick} className="btn">
-            Add product
+          <button onClick={updateProduct} className="btn">
+            Update Product
           </button>
         </p>
       </form>
-      <TbProduct/>
+      
     </div>
-  );
-};
+  )
+}
 
-export default AddProduct;
+export default UpdateProduct
