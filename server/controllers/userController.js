@@ -1,62 +1,88 @@
-const User = require('../models/user');
+const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
+// const authMiddleware = require('../middleware/isAuth');
 
-const createUser = async (req, res) => {
+const signup = async (req, res) => {
   try {
-    const { username, password, role, imgUrl } = req.body;
-    const user = await User.create({ username, password, role, imgUrl });
-    res.status(201).json({ user });
+    const { username, email, password, role } = req.body;
+
+    // Hash the password
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Create a new user
+    const user = await User.create({
+      username,
+      email,
+      password: hashedPassword,
+      role
+    });
+
+    // Generate token
+    const token = jwt.sign({ userId: user.id, role: user.role }, 'your_secret_key', {
+      expiresIn: '1h'
+    });
+
+    // Set the token as a cookie
+    res.cookie('token', token, {
+      httpOnly: true,
+      maxAge: 3600000 // 1 hour in milliseconds
+    });
+
+    res.status(201).json({ user, token });
   } catch (error) {
-    res.status(500).json({ error: 'Failed to create user' });
+    console.error('Signup Error:', error);
+    res.status(500).json({ message: 'Something went wrong' });
   }
 };
 
-const login = async (req, res) => {
+const signin = async (req, res) => {
   try {
-    const { username, password } = req.body;
-    const user = await User.findOne({ where: { username } });
+    const { email, password } = req.body;
+
+    // Find the user by email
+    const user = await User.findOne({ where: { email } });
+
     if (!user) {
-      return res.status(401).json({ error: 'Invalid username or password' });
+      return res.status(401).json({ message: 'Authentication failed' });
     }
 
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) {
-      return res.status(401).json({ error: 'Invalid username or password' });
+    // Compare the provided password with the stored hashed password
+    const passwordMatch = await bcrypt.compare(password, user.password);
+
+    if (!passwordMatch) {
+      return res.status(401).json({ message: 'Authentication failed' });
     }
 
-    const token = jwt.sign({ id: user.id, role: user.role }, 'secretKey');
-    res.cookie('token', token, { httpOnly: true });
-    res.json({ user });
+    // Generate token
+    const token = jwt.sign({ userId: user.id, role: user.role }, 'your_secret_key', {
+      expiresIn: '1h'
+    });
+
+    // Set the token as a cookie
+    res.cookie('token', token, {
+      httpOnly: true,
+      maxAge: 3600000 // 1 hour in milliseconds
+    });
+
+    res.json({ user, token });
   } catch (error) {
-    res.status(500).json({ error: 'Failed to login' });
+    console.error('Signin Error:', error);
+    res.status(500).json({ message: 'Something went wrong' });
   }
 };
 
-const getUserById = async (req, res) => {
+const getProtectedData = async (req, res) => {
   try {
-    const { id } = req.params;
-    const user = await User.findByPk(id);
-    if (!user) {
-      return res.status(404).json({ error: 'User not found' });
-    }
-    res.json({ user });
+    res.json({ message: 'This is protected data!' });
   } catch (error) {
-    res.status(500).json({ error: 'Failed to get user' });
+    console.error('Protected Data Error:', error);
+    res.status(500).json({ message: 'Something went wrong' });
   }
-};
-
-// Example of an authorized route based on role
-const getAdminData = (req, res) => {
-    if (req.user.role !== 'admin') {
-        return res.status(403).json({ error: 'Access denied' });
-      }
-  res.json({ message: 'Accessed admin route', user: req.user });
 };
 
 module.exports = {
-  createUser,
-  login,
-  getUserById,
-  getAdminData
+  signup,
+  signin,
+  getProtectedData
 };

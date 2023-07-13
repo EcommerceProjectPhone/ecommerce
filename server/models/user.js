@@ -1,31 +1,32 @@
-const Sequelize = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../database/db');
-const bcrypt = require('bcrypt');
 
-const User = sequelize.define('user', {
-  username: {
-    type: Sequelize.STRING,
-    unique: true,
-    allowNull: false
+class User extends Model {}
+
+User.init(
+  {
+    username: {
+      type: DataTypes.STRING,
+      unique: true,
+      allowNull: false
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    role: {
+      type: DataTypes.ENUM('admin', 'seller', 'client'),
+      defaultValue: 'client'
+    },
+    imgUrl: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
   },
-  password: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
-  role: {
-    type: Sequelize.ENUM('admin', 'seller', 'client'),
-    defaultValue: 'client'
-  },
-  imgUrl: {
-    type: Sequelize.STRING,
-    allowNull: false
+  {
+    sequelize,
+    modelName: 'User'
   }
-});
-
-// Hash password before saving
-User.beforeCreate(async (user) => {
-  const salt = await bcrypt.genSalt(10);
-  user.password = await bcrypt.hash(user.password, salt);
-});
+);
 
 module.exports = User;
