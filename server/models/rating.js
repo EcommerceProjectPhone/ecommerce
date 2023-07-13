@@ -10,6 +10,7 @@ const Rating = sequelize.define('rating', {
   }
 });
 
+
 Rating.belongsTo(User, { foreignKey: 'userId' });
 Rating.belongsTo(Product, { foreignKey: 'productId' });
 
