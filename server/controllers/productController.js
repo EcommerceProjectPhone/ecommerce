@@ -1,9 +1,13 @@
 const Product = require('../models/product.js');
+const User = require('../models/user.js');
+
 const cloudinary = require("../database/cloudConfig.js")
 
 // Get all products
 const getAllProducts = (req, res) => {
-  Product.findAll()
+  Product.findAll({
+    include: [User], 
+  })
     .then((products) => {
       res.json(products);
     })
@@ -15,10 +19,10 @@ const getAllProducts = (req, res) => {
 
 // Create a new product
 const createProduct = async (req, res) => {
-    const { name, description, price, stock, cover } = req.body;
+    const { name, description, price, stock, imageUrl ,userId} = req.body;
   
     try {
-      const uploadResult = await cloudinary.uploader.upload(cover, {
+      const uploadResult = await cloudinary.uploader.upload(imageUrl, {
         folder: "ecomphone"
       });
   
@@ -27,7 +31,8 @@ const createProduct = async (req, res) => {
         description: description,
         price: price,
         stock: stock,
-        cover: uploadResult.secure_url,
+        imageUrl: uploadResult.secure_url,
+        userId: userId
       });
   
       res.json(newProduct);
@@ -40,7 +45,7 @@ const createProduct = async (req, res) => {
 // Update a product
 const updateProduct = (req, res) => {
   const productId = req.params.id;
-  const { name, description, price, stock, cover } = req.body;
+  const { name, description, price, stock, imageUrl,userId } = req.body;
 
   Product.update(
     {
@@ -48,7 +53,8 @@ const updateProduct = (req, res) => {
       description: description,
       price: price,
       stock: stock,
-      cover: cover,
+      imageUrl: imageUrl,
+      userId: userId
     },
     {
       where: {

@@ -1,19 +1,15 @@
+const { DataTypes } = require('sequelize');
 const sequelize = require('../database/db');
-const Client = require('./client');
-
+const User = require('./user');
 
 const Order = sequelize.define('order', {
-  totalAmount: {
-    type: Sequelize.FLOAT,
-    allowNull: false
-  },
-  status: {
-    type: Sequelize.STRING,
-    allowNull: false,
-    defaultValue: 'pending'
-  }
+  orderDate: DataTypes.DATE,
+  totalAmount: DataTypes.DECIMAL(10, 2),
+  shippingAddress: DataTypes.STRING,
+  paymentStatus: DataTypes.STRING,
 });
 
-Order.belongsTo(User, { foreignKey: 'clientId' });
+Order.belongsTo(User);
+
 
 module.exports = Order;

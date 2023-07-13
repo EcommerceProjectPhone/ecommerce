@@ -1,19 +1,16 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../database/db');
-const Seller = require('./seller');
+
+const User = require('./user');
 
 const Product = sequelize.define('product', {
-  name: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
+  name: DataTypes.STRING,
   description: DataTypes.STRING,
   price: DataTypes.DECIMAL(10, 2),
   stock: DataTypes.INTEGER,
-  cover: DataTypes.STRING,
+  imageUrl: DataTypes.STRING,
 });
 
-Product.belongsTo(User, { foreignKey: 'sellerId' });
-Product.hasMany(Rating, { foreignKey: 'productId' });
+Product.belongsTo(User);
 
 module.exports = Product;
