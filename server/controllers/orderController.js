@@ -15,9 +15,34 @@ const getAllOrders = (req, res) => {
     });
 };
 
+// // Assuming you have an Express route/controller file
+
+// const User = require('path-to-your-User-model'); // Replace with the path to your User model
+
+// // ...
+
+// const users = {
+//   getOneUser: (username, cb) => {
+//     User.findOne({ where: { username } })
+//       .then(result => {
+//         cb(null, result);
+//       })
+//       .catch(err => {
+//         cb(err, null);
+//       });
+//   }
+// };
+
+// // ...
+const getOneOrder = (req,res)=>{
+  Order.findOne({where : {username}})
+
+}
+
 // add a new order
 const createOrder = (req, res) => {
-  const { orderDate, totalAmount, shippingAddress, paymentStatus, userId } = req.body;
+  const { orderDate, totalAmount, shippingAddress, paymentStatus } = req.body;
+  const { userId } = req.params;
 
   Order.create({
     orderDate: orderDate,
@@ -34,6 +59,7 @@ const createOrder = (req, res) => {
       res.status(500).json({ error: 'Internal server error' });
     });
 };
+
 
 // Update an order
 const updateOrder = (req, res) => {

@@ -9,7 +9,10 @@ const Rating = sequelize.define('rating', {
   createdAt: DataTypes.DATE,
 });
 
+
+
 Rating.belongsTo(User);
 Rating.belongsTo(Product);
+
 
 module.exports = Rating;
