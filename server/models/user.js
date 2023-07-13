@@ -1,3 +1,4 @@
+// models/User.js
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../database/db');
 
@@ -8,6 +9,10 @@ User.init(
     username: {
       type: DataTypes.STRING,
       unique: true,
+      allowNull: false
+    },
+     email: {
+      type: DataTypes.STRING,
       allowNull: false
     },
     password: {

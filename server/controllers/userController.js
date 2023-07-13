@@ -1,88 +1,73 @@
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-// const authMiddleware = require('../middleware/isAuth');
+const authMiddleware = require('../middleware/isAuth');
 
-const signup = async (req, res) => {
+const getAllUsers = async (req, res) => {
   try {
-    const { username, email, password, role } = req.body;
+    const users = await User.findAll();
+    res.status(200).json(users);
+  } catch (error) {
+    console.error('Get Users Error:', error);
+    res.status(500).json({ error: 'Failed to retrieve users' });
+  }
+};
 
-    // Hash the password
+const getOneUser = async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const user = await User.findOne({ where: { id: userId } });
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+    res.status(200).json(user);
+  } catch (error) {
+    console.error('Get User Error:', error);
+    res.status(500).json({ error: 'Failed to retrieve user' });
+  }
+};
+
+const registerUser = async (req, res) => {
+  try {
+    const { username, email, password, role,imgUrl } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
-
-    // Create a new user
     const user = await User.create({
       username,
       email,
       password: hashedPassword,
-      role
+      role,
+      imgUrl
     });
-
-    // Generate token
-    const token = jwt.sign({ userId: user.id, role: user.role }, 'your_secret_key', {
-      expiresIn: '1h'
-    });
-
-    // Set the token as a cookie
-    res.cookie('token', token, {
-      httpOnly: true,
-      maxAge: 3600000 // 1 hour in milliseconds
-    });
-
-    res.status(201).json({ user, token });
+    res.status(200).json({ message: 'Register successful', user });
   } catch (error) {
-    console.error('Signup Error:', error);
-    res.status(500).json({ message: 'Something went wrong' });
+    console.error('Register Error:', error);
+    res.status(500).json({ error: 'Register failed' });
   }
 };
 
-const signin = async (req, res) => {
+const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
-
-    // Find the user by email
     const user = await User.findOne({ where: { email } });
-
     if (!user) {
-      return res.status(401).json({ message: 'Authentication failed' });
+      return res.status(404).json({ error: 'User not found' });
     }
-
-    // Compare the provided password with the stored hashed password
-    const passwordMatch = await bcrypt.compare(password, user.password);
-
-    if (!passwordMatch) {
-      return res.status(401).json({ message: 'Authentication failed' });
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    if (!isPasswordValid) {
+      return res.status(401).json({ error: 'Invalid password' });
     }
-
-    // Generate token
-    const token = jwt.sign({ userId: user.id, role: user.role }, 'your_secret_key', {
-      expiresIn: '1h'
-    });
-
-    // Set the token as a cookie
-    res.cookie('token', token, {
-      httpOnly: true,
-      maxAge: 3600000 // 1 hour in milliseconds
-    });
-
-    res.json({ user, token });
+    const token = jwt.sign({ userId: user.id, role: user.role }, 'your_secret_key');
+    res.cookie('token', token, { httpOnly: true, maxAge: 3600000 }); // Set token as a cookie
+    res.status(200).json({ token });
   } catch (error) {
-    console.error('Signin Error:', error);
-    res.status(500).json({ message: 'Something went wrong' });
-  }
-};
-
-const getProtectedData = async (req, res) => {
-  try {
-    res.json({ message: 'This is protected data!' });
-  } catch (error) {
-    console.error('Protected Data Error:', error);
-    res.status(500).json({ message: 'Something went wrong' });
+    console.error('Login Error:', error);
+    res.status(500).json({ error: 'Login failed' });
   }
 };
 
 module.exports = {
-  signup,
-  signin,
-  getProtectedData
+  getAllUsers,
+  getOneUser,
+  registerUser,
+  loginUser
 };
