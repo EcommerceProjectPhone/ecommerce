@@ -1,8 +1,8 @@
 const router = require('express').Router();
- const {getUser,updateCover,updateProfile}=require("../controller/profileController")
+ const controller=require("../controllers/profileController")
 
- router.get('/:id',getUser)
- router.patch('/cover/:id',updateCover)
- router.patch("profile/:id",updateProfile)
-
+ router.get("/get/:id",controller.getUser)
+ router.patch('/cover/:id',controller.updateCover)
+ router.patch("/main/:id",controller.updateProfile)
+router.patch("/edit/:id",controller.editProfile)
  module.exports = router
