@@ -142,6 +142,7 @@ font-style: normal;
 font-weight: 700;
 line-height: normal;
 text-align: center;
+margin-top: 300px;
  }
 
 
@@ -315,7 +316,7 @@ font-style: normal;
 font-weight: 500;
 line-height: 180%;
 margin-left: 151px;
-margin-top: 300px;
+margin-top: 380px;
 }
 
 .exploree{
@@ -404,7 +405,7 @@ gap: 13.415px;
 border-radius: 206.71px;
 background: #493E52;
 margin-left: 800px;
-margin-top: -70px;
+margin-top: -40px;
 }
 #yes{
   color: #FFF;
@@ -423,7 +424,7 @@ font-style: normal;
 font-weight: 500;
 line-height: normal;
 margin-left: 150px;
-margin-top: -30px;
+margin-top: -10px;
 }
 #k{
   color: #FFF;
@@ -444,7 +445,7 @@ font-style: normal;
 font-weight: 500;
 line-height: normal;
 margin-left: 300px;
-margin-top: -30px;
+margin-top: -10px;
 }
 #y{
   color: #FFF;
@@ -464,10 +465,10 @@ font-style: normal;
 font-weight: 500;
 line-height: normal;
 margin-left: 520px;
-margin-top: -30px;
+margin-top: -10px;
 }
 #under{
-  margin-top: 250px;
+  margin-top: 120px;
 }
 
 #box {
@@ -541,6 +542,7 @@ font-style: normal;
 font-weight: 700;
 line-height: normal;
 text-align: center;
+margin-top: -80px;
 }
 #us{
   display: flex;
@@ -554,7 +556,7 @@ font-style: normal;
 font-weight: 500;
 line-height: 180%;
 margin-left: 500px;
-margin-top: -40px;
+margin-top: -20px;
 
 }
 #box5 {
@@ -567,8 +569,9 @@ margin-top: -40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: -600px;
+  margin-top: -500px;
 }
+
 
 #speak{
   color: #FFF;
@@ -622,6 +625,7 @@ font-style: normal;
 font-weight: 700;
 line-height: normal;
 text-align: center;
+margin-top: 150px;
 }
 #layer{
   color: var(--half-white, rgba(255, 255, 255, 0.50));
@@ -670,7 +674,7 @@ font-weight: 500;
 line-height: normal;
 
 display: flex;
-width: 150px;
+width: 250px;
 padding: 5px 49px;
 justify-content: center;
 align-items: center;
@@ -691,7 +695,7 @@ font-weight: 500;
 line-height: normal;
 
 display: flex;
-width: 150px;
+width: 300px;
 padding: 5px 70px;
 flex-direction: column;
 justify-content: center;
@@ -700,7 +704,7 @@ gap: 10px;
 
 border-radius: 10px;
 background: var(--white-10, rgba(255, 255, 255, 0.10));
-margin-top: -52px;
+margin-top: -50px;
 margin-left: 300px;
 }
 #artist{
@@ -711,7 +715,7 @@ font-style: normal;
 font-weight: 500;
 line-height: normal;
 display: flex;
-width: 150px;
+width: 300px;
 padding: 5px 70px;
 flex-direction: column;
 justify-content: center;
@@ -721,7 +725,7 @@ border-radius: 10px;
 background: var(--white-10, rgba(255, 255, 255, 0.10));
 
 
-margin-top:-52px ;
+margin-top:-49px ;
 margin-left: 620px;
 }
 #drop{
@@ -733,7 +737,7 @@ font-weight: 500;
 line-height: normal;
 
 display: flex;
-width: 150px;
+width: 250px;
 padding: 5px 70px;
 flex-direction: column;
 justify-content: center;
@@ -742,7 +746,7 @@ gap: 10px;
 border-radius: 10px;
 background: var(--white-10, rgba(255, 255, 255, 0.10));
 
-margin-top:-52px ;
+margin-top:-49px ;
 margin-left: 940px;
 
 }
@@ -756,7 +760,7 @@ margin-left: 940px;
 
 
   display: flex;
-width: 120px;
+width: 250px;
 padding: 5px 70px;
 flex-direction: column;
 justify-content: center;
@@ -767,8 +771,8 @@ gap: 10px;
 border-radius: 10px;
 background: var(--white-10, rgba(255, 255, 255, 0.10));
 
-margin-top:-52px ;
-margin-left: 1250px;
+margin-top:-49px ;
+margin-left: 1220px;
 }
 
 
