@@ -3,7 +3,6 @@ const User = require('../models/user')
 
 const findId = async (req, res) => {
   try {
-    console.log("aaaa");
     const user = await User.findByPk(req.params.id)
     if (user) {
       res.status(200).send(user)
