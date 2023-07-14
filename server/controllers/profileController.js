@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const { User} = require('../models/user')
+const User = require('../models/user')
 
 const findId = async (req, res) => {
   try {

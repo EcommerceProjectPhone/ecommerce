@@ -13,6 +13,9 @@ const productRoute = require("./routes/product.routes")
 app.use("/product",productRoute)
 const usersRoute = require('./routes/user.routes');
 app.use('/users', usersRoute);
+app.get('/hi',(req,res)=>{
+res.send("aa")
+})
 const profileRoutes=require("./routes/profile.routes")
 app.use("/api/profile",profileRoutes)
 sequelize.authenticate()
