@@ -21,7 +21,12 @@ const Login = ({ handleLogin }) => {
       const token = response.data.token;
       handleLogin(token);
       var payload = JSON.parse(window.atob(token.split('.')[1])); 
+      console.log("paylod",payload);
       console.log(payload.role);
+      axios.post(`http://localhost:3000/users/getOneUser/${payload.id}`)
+          .then((res) => {
+            navigate("/home", { state: res?.data })
+          })
       if(payload.role === 'client'){
         navigate('/home');
       }

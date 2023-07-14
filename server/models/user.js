@@ -26,8 +26,13 @@ User.init(
     imgUrl: {
       type: DataTypes.STRING,
       allowNull: false
-    }
+    },
+    coverUrl : {
+      type: DataTypes.STRING
+    },
+    bio : DataTypes.STRING
   },
+
   {
     sequelize,
     modelName: 'User'

@@ -3,8 +3,13 @@ import Navbar from '../../src/component/Navbar.jsx';
 import Product from '../../src/component/Product.jsx';
 import Footer from '../../src/component/Footer.jsx';
 import { Box } from '@mui/material';
+import { useLocation } from 'react-router-dom';
 
 const Home = () => {
+  const location = useLocation()
+  const data = location.state
+  console.log("data",data);
+  
   return (
     <div>
       <Navbar />

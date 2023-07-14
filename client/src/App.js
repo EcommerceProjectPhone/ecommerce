@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import './App.css';
 import Home from './component/Home.jsx';
-import Login from './component/Login.jsx';
 import Signup from './component/Signup.jsx';
-
+import Login from '../../client/src/component/login.jsx'
 import AddProduct from "./component/addProduct/AddProduct.jsx";
 import BuyProduct from "./component/buyProduct/BuyProduct.jsx";
 import UpdateProduct from "./component/addProduct/UpdateProduct.jsx";

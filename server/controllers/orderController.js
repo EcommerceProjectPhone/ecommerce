@@ -34,10 +34,7 @@ const getAllOrders = (req, res) => {
 // };
 
 // // ...
-const getOneOrder = (req,res)=>{
-  Order.findOne({where : {username}})
 
-}
 
 // add a new order
 const createOrder = (req, res) => {

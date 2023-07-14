@@ -20,7 +20,7 @@ const AddProduct = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:3000/product/add', products);
+      await axios.post(`http://localhost:3000/product/add`, products);
       navigate('/product');
     } catch (err) {
       console.log(err);
