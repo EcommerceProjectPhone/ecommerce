@@ -3,7 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faCamera } from '@fortawesome/free-solid-svg-icons';
 import axios from "axios";
 import "./profile.css"
-const Profile = ({ user, setFile, change, setChange, setUpdated, updated, changeProfile,changeCover }) => {
+
+const Profile = ({ user, setFile, change, setChange, setUpdated, updated, changeProfile,changeCover  }) => {
     const [show, setShow] = useState(false)
     const [hide, setHide] = useState(true)
     const [name, setName] = useState('')
