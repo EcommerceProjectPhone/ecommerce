@@ -11,6 +11,8 @@ const Product = sequelize.define('product', {
   imageUrl: DataTypes.STRING,
 });
 
-Product.belongsTo(User);
+User.hasMany(Product, { foreignKey: 'userId' });
+Product.belongsTo(User, { foreignKey: 'userId' });
+
 
 module.exports = Product;

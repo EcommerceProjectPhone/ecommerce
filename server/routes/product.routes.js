@@ -5,6 +5,8 @@ const {getAllProducts,createProduct,updateProduct,deleteProduct} = require("../c
 
 
 router.get("/getAll",getAllProducts)
+router.get("/getAll/userId",getAllProducts)
+
 router.post("/add",createProduct)
 router.delete("/:id",deleteProduct)
 router.put("/:id",updateProduct)

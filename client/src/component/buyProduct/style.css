@@ -1,0 +1,126 @@
+.price {
+  color: #fff;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.rate {
+  width: 19.72px;
+  height: 17.529px;
+  flex-shrink: 0;
+}
+
+.grid-container {
+  margin-top: 15%;
+
+  display: grid;
+  gap: 26px;
+  padding: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  position: absolute;
+  top: -8px;
+  left: 423px;
+}
+
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px;
+  font-size: 30px;
+  border-radius: 10px;
+  background: var(--white-10, rgba(255, 255, 255, 0.1));
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+margin-top: 10%;
+  width: 389px;
+  height: 1424px;
+  flex-shrink: 0;
+}
+
+.item5 {
+  
+  width: 284.119px;
+  height: 434.579px;
+  flex-shrink: 0;
+  border-radius: 7.304px;
+  background: var(--white-10, rgba(255, 255, 255, 0.1));
+  box-shadow: 0px 3.6519203186035156px 2.921536445617676px 0px
+    rgba(0, 0, 0, 0.25);
+}
+.item3 {
+  width: 284.119px;
+  height: 434.579px;
+  flex-shrink: 0;
+  border-radius: 7.304px;
+  background: var(--white-10, rgba(255, 255, 255, 0.1));
+  box-shadow: 0px 3.6519203186035156px 2.921536445617676px 0px
+    rgba(0, 0, 0, 0.25);
+}
+.item4 {
+  grid-column: 4;
+  grid-row: 1;
+}
+.fi {
+  width: 29.143px;
+  height: 17px;
+  flex-shrink: 0;
+
+  color: #fff;
+  font-family: Poppins;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.layout {
+  width: 30px;
+  height: 17px;
+  flex-shrink: 0;
+  color: #fff;
+  font-family: Poppins;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.btn {
+  display: flex;
+  width: 212.542px;
+  height: 36.519px;
+  padding: 7.304px 14.608px;
+  justify-content: center;
+  align-items: center;
+  gap: 7.304px;
+  flex-shrink: 0;
+  border-radius: 7.304px;
+  background: var(
+    --pp-2-purple,
+    linear-gradient(214deg, #b75cff 0%, #671ae4 100%)
+  );
+}
+.txt {
+  color: #fff;
+  font-family: Poppins;
+  font-size: 14.608px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.title {
+  color: var(--half-white, rgba(255, 255, 255, 0.5));
+  font-family: Poppins;
+  font-size: 14.608px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.img1 {
+  width: 246.139px;
+  height: 277.546px;
+  flex-shrink: 0;
+  border-radius: 7.304px;
+  background: lightgray 50% / cover no-repeat;
+}

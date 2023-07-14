@@ -1,23 +1,13 @@
-const { DataTypes, Sequelize } = require('sequelize');
+  // models/User.js
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../database/db');
-
 
 const User = sequelize.define('user', {
   username: DataTypes.STRING,
-  email: {
-    type: DataTypes.STRING,
-    unique: true,
-  },
+  email: DataTypes.STRING,
   password: DataTypes.STRING,
-  role: {
-    type: Sequelize.ENUM('admin', 'seller', 'client'),
-    defaultValue: 'client',
-  },
-})
+  role: DataTypes.STRING,
+});
 
-// const role = {
-//   admin: 'admin',
-//   seller: 'seller',
-//   client: 'client',
-// }
-module.exports = User
+module.exports = User;
+
