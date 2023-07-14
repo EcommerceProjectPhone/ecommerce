@@ -71,7 +71,7 @@ Spirit of Fashion</p>
 
 
       <h4 className="highest">Highest Quality <br/>Collection </h4>
-      <h6>Get Started</h6>
+      
     
       <Footer/>
       
