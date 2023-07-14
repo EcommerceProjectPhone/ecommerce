@@ -1,7 +1,6 @@
 import React from "react";
 import "./profile.css"
 const Posts = ({user}) => {
-
     return (
         <div className="posts">
             <div className="f-card">
