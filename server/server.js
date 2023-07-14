@@ -9,11 +9,12 @@ app.use(cors());
 app.use(cookieParser());
 
 PORT = 3000
-
 const productRoute = require("./routes/product.routes")
 app.use("/product",productRoute)
 const usersRoute = require('./routes/user.routes');
 app.use('/users', usersRoute);
+const profileRoutes=require("./routes/profile.routes")
+app.use("/api/profile",profileRoutes)
 sequelize.authenticate()
   .then(() => {
     console.log('Connection has been established successfully.');

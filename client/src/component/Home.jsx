@@ -26,11 +26,13 @@ Spirit of Fashion</p>
 <p id='fashion'>Fashion Designer</p>
 <p id='y'>60+</p>
 <p id='shows'>Fashion Shows</p>
+<div id='under'>
 <Box> <table id='box'></table></Box>
 <Box> <table id='box1'></table></Box>
 <Box> <table id='box2'></table></Box>
 <Box> <table id='box3'></table></Box>
 <Box> <table id='box4'></table></Box>
+</div>
 
 
       <Product />
@@ -79,6 +81,8 @@ Spirit of Fashion</p>
       
     
       <Footer/>
+
+
       
 
       

@@ -35,6 +35,30 @@ const Signup = () => {
       console.error('Register Error:', error);
     }
   };
+  const handleImageUpload = async (e) => {
+    const file = e.target.files[0];
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('upload_preset', 'paypalscard');
+
+    try {
+      const response = await axios.post(
+        'https://api.cloudinary.com/v1_1/dgcdmrj7x/image/upload',
+        formData,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        }
+      );
+
+      const imageUrl = response.data.secure_url;
+      setImgUrl(imageUrl);
+      console.log(imageUrl);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const handleImageUpload = async (e) => {
     const file = e.target.files[0];

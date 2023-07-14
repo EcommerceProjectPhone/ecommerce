@@ -1,4 +1,4 @@
-// models/User.js
+  // models/User.js
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../database/db');
 
@@ -23,12 +23,13 @@ User.init(
       type: DataTypes.ENUM('admin', 'seller', 'client'),
       defaultValue: 'client'
     },
-    imgUrl: {
+    profileUrl: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    coverUrl : {
-      type: DataTypes.STRING
+    coverUrl: {
+      type: DataTypes.STRING,
+      allowNull: false
     },
     bio : DataTypes.STRING
   },
