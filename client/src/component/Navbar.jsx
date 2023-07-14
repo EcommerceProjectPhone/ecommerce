@@ -12,7 +12,9 @@ const Navbar = () => {
       <Link to="/product">
       <div className="explore">Products</div>
       </Link>
+      <Link to="/profile">
       <div className="personal-collection">Personal Collection</div>
+      </Link>
       <div
         className="SearchBar"
         style={{
