@@ -1,17 +1,25 @@
 // app.js
 const express = require('express');
 const cors = require("cors")
+const cookieParser = require("cookie-parser")
 const sequelize = require("./database/db")
+const productRoute = require("./routes/product.routes")
+const usersRoute = require('./routes/user.routes');
+PORT  = 3000 ; 
+
 const app = express();
 app.use(express.json());
 app.use(cors());
 app.use(cookieParser());
 
 
-const productRoute = require("./routes/product.routes")
+
 app.use("/product",productRoute)
-const usersRoute = require('./routes/user.routes');
 app.use('/users', usersRoute);
+
+
+
+
 sequelize.authenticate()
   .then(() => {
     console.log('Connection has been established successfully.');
