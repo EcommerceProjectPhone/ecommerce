@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require("cors")
 const cookieParser = require("cookie-parser")
 const sequelize = require("./database/db")
+const cookieParser = require("cookie-parser")
 const productRoute = require("./routes/product.routes")
 const usersRoute = require('./routes/user.routes');
 PORT  = 3000 ; 
@@ -12,10 +13,14 @@ app.use(express.json());
 app.use(cors());
 app.use(cookieParser());
 
+PORT = 3000
+const productRoute = require("./routes/product.routes")
 
 
 app.use("/product",productRoute)
 app.use('/users', usersRoute);
+const profileRoutes=require("./routes/profile.routes")
+app.use("/api/profile",profileRoutes)
 
 
 
