@@ -6,7 +6,7 @@ const User = require('./user');
 const Rating = sequelize.define('rating', {
   rating: DataTypes.INTEGER,
   review: DataTypes.STRING,
-  createdAt: DataTypes.DATE,
+
 });
 
 
