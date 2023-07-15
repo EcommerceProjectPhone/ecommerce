@@ -16,7 +16,7 @@ const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('client');
-  const [imgUrl, setImgUrl] = useState('');
+  const [imgUrl, setimgUrl] = useState('');
 
   const paperStyle = { padding: '30px 20px', width: 300, margin: '20px auto' };
   const headerStyle = { margin: 0 };
@@ -35,6 +35,8 @@ const Signup = () => {
       console.error('Register Error:', error);
     }
   };
+ 
+
   const handleImageUpload = async (e) => {
     const file = e.target.files[0];
     const formData = new FormData();
@@ -53,7 +55,7 @@ const Signup = () => {
       );
 
       const imageUrl = response.data.secure_url;
-      setImgUrl(imageUrl);
+      setimgUrl(imageUrl);
       console.log(imageUrl);
     } catch (err) {
       console.log(err);

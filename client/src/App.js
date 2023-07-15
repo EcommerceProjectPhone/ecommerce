@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import './App.css';
+
+import '../src/component/App.css';
+
 import Home from './component/Home.jsx';
 import Login from './component/login.jsx';
 import Signup from './component/Signup.jsx';
@@ -24,9 +26,9 @@ const App = () => {
       
       <Route path="/login" element={<Login handleLogin={handleLogin} />} />
       <Route path="/signup" element={<Signup />} />
-      <Route path="/home" element={<Home  />} />
+      <Route path="/home" element={<Home userId={userId} />} />
       <Route path="/profile" element={<Pr userId={userId} UserRole = {UserRole}  />} />
-      <Route path="/add" element={<AddProduct />} />
+      <Route path="/add" element={<AddProduct userId={userId} UserRole = {UserRole} />} />
       <Route path="/product" element={<BuyProduct  userId={userId} UserRole = {UserRole}  />} />
       <Route path="/update/:id" element={<UpdateProduct />} />
     </Routes>

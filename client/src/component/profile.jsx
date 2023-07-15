@@ -1,26 +1,25 @@
-import React, {  useState } from "react";
+import React, {  useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faCamera } from '@fortawesome/free-solid-svg-icons';
 import axios from "axios";
-import "./profile.css"
-import Navbar from "./Navbar";
-import Footer from "./Footer";
 
-const Profile = ({ user, setFile, change, setChange, setUpdated, updated, changeProfile,changeCover  }) => {
+const Profile = ({ user, setFile, change, setChange, setUpdated, updated, changeProfile,changeCover,id}) => {
     const [show, setShow] = useState(false)
     const [hide, setHide] = useState(true)
     const [name, setName] = useState('')
     const [bio, setBio] = useState('')
     const [showen,setShowen] = useState(false)
+
+
+
     const editProfile = (id) => {
         axios.patch(`http://127.0.0.1:3000/api/profile/edit/${id}`, {
             username: name,
             bio: bio
         })
-            .then((res) => console.log("success"))
+            .then((res) => {setUpdated(!updated);console.log(updated);})
             .catch((err) => console.log(err))
     }
-
 
 
     return (
@@ -37,7 +36,7 @@ const Profile = ({ user, setFile, change, setChange, setUpdated, updated, change
                     <input className="input" name="file" type="file" onChange={(e) => setFile(e.target.files[0])} />
                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" strokeLinejoin="round" strokeLinecap="round" viewBox="0 0 24 24" strokeWidth="2" fill="none" stroke="currentColor" className="icon"><polyline points="16 16 12 12 8 16"></polyline><line y2="21" x2="12" y1="12" x1="12"></line><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"></path><polyline points="16 16 12 12 8 16"></polyline></svg>
                 </div> : null}
-                {showen ? <button className="button2" onClick={(e) => { e.preventDefault(); changeCover(1); setShowen(!showen) }}>
+                {showen ? <button className="button2" onClick={(e) => { e.preventDefault(); changeCover(id); setShowen(!showen) }}>
                     save
                     <div className="hoverEffect">
                         <div>
@@ -45,7 +44,7 @@ const Profile = ({ user, setFile, change, setChange, setUpdated, updated, change
                     </div></button> : null}
             </div>
             <div className="card__avatar">
-                <img src={user.profileUrl} alt="Avatar" />
+                <img src={user.imgUrl} alt="Avatar" />
             </div>
             <div className="editPhoto">
                 <FontAwesomeIcon icon={faCamera} onClick={(e) => { e.preventDefault(); setChange(!change); setShow(!show) }} />
@@ -53,7 +52,7 @@ const Profile = ({ user, setFile, change, setChange, setUpdated, updated, change
                     <input className="input" name="file" type="file" onChange={(e) => setFile(e.target.files[0])} />
                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" strokeLinejoin="round" strokeLinecap="round" viewBox="0 0 24 24" strokeWidth="2" fill="none" stroke="currentColor" className="icon"><polyline points="16 16 12 12 8 16"></polyline><line y2="21" x2="12" y1="12" x1="12"></line><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"></path><polyline points="16 16 12 12 8 16"></polyline></svg>
                 </div> : null}
-                {show ? <button className="button" onClick={(e) => { e.preventDefault(); changeProfile(1); setShow(!show) }}>
+                {show ? <button className="button" onClick={(e) => { e.preventDefault(); changeProfile(id); setShow(!show) }}>
                     save
                     <div className="hoverEffect">
                         <div>
@@ -75,7 +74,7 @@ const Profile = ({ user, setFile, change, setChange, setUpdated, updated, change
                 } else {
                     editProfile(1);
                     setHide(!hide);
-                    setUpdated(!updated);
+
                 }
             }}>
                 edit profile
@@ -90,4 +89,4 @@ const Profile = ({ user, setFile, change, setChange, setUpdated, updated, change
     )
 }
 
-export default Profile
+export default Profile;

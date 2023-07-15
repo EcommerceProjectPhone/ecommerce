@@ -1,11 +1,49 @@
-import React from 'react';
+import React,{useState}  from 'react';
 import Navbar from '../../src/component/Navbar.jsx';
 import Product from '../../src/component/Product.jsx';
 import Footer from '../../src/component/Footer.jsx';
 import { Box } from '@mui/material';
+import axios from 'axios';
 
-const Home = () => {
+const Home = ({userId}) => {
+  const [data,setData]=useState([])
+const getData=()=>{
+  axios.get("")
+.then((response)=>{
+setData(response.data)
+})
+.catch((err)=>{
+console.log(err);
+})
+
+}
+console.log("user",userId);
+
+
   return (
+    <div>
+      <Navbar user ={userId} />
+      <p className='phone'>phone are the
+        Spirit of Fashion</p>
+        <p id='main'>Main Collection</p>
+        <p id='market'>Creators Market</p>
+        <p className='iphone'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit.</p>
+        <p className='exploree'>Explore Now</p>
+        <p className='create'>Create</p>
+        <p id='yes'>100+</p>
+        <p id='brands'>Brands</p>
+        <p id='k'>50k+</p>
+        <p id='fashion'>Fashion Designer</p>
+        <p id='y'>60+</p>
+        <p id='shows'>Fashion Shows</p>
+        <div id='under'>
+        <Box> <table id='box'></table></Box>
+        <Box> <table id='box1'></table></Box>
+        <Box> <table id='box2'></table></Box>
+        <Box> <table id='box3'></table></Box>
+        <Box> <table id='box4'></table></Box>
+</div>
+
        <div>
               <Navbar />
               <p className='phone'>phone are the
@@ -30,24 +68,26 @@ const Home = () => {
       </div>
 
 
-              <Product />
-              <p id='about'>About Us</p>
-              
-              <p id='us'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              <p id='speak'>Fashion That Speaks</p>
-              <p id='p'>Lorem ipsum dolor sit amet, consectetur <br/>adipiscing elit. Etiam eu turpis molestie,<br/> dictum est a, mattis tellus. Sed dignissim,<br/> metus nec fringilla accumsan, risus sem<br/> sollicitudin lacus, ut interdum tellus elit<br/> sed risus. Maecenas eget condimentum velit,<br/> sit amet feugiat lectus. Class aptent taciti <br/>sociosqu ad litora torquent per conubia nostra,<br/> per inceptos himenaeos. Praesent auctor purus<br/> luctus enim egestas, ac scelerisque ante pulvinar. </p>
-              <p id='more'>Show more</p>
-              <Box> <table id='box5'></table></Box>
-              <p id='all'>All connection</p>
-              <p id='layer'>Worlds First Layer 2 Fashion Marketplace</p>
-              <Box ><table id='flesh'></table></Box>
-              <Box><table id='left'></table></Box>
-              <Box><table id='nft'></table></Box>
-              <p id='collection'>All Collections</p>
-              <p id='ver'>Verified Brands</p>
-              <p id='artist'>Verified Artists</p>
-              <p id='drop'>New Drops</p>
-              <p id='live'>Live Shows</p>
+      <Product  />
+      <div id='about'>
+      <p >About Us</p>
+      </div>
+      
+      <p id='us'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <p id='speak'>Fashion That Speaks</p>
+      <p id='p'>Lorem ipsum dolor sit amet, consectetur <br/>adipiscing elit. Etiam eu turpis molestie,<br/> dictum est a, mattis tellus. Sed dignissim,<br/> metus nec fringilla accumsan, risus sem<br/> sollicitudin lacus, ut interdum tellus elit<br/> sed risus. Maecenas eget condimentum velit,<br/> sit amet feugiat lectus. Class aptent taciti <br/>sociosqu ad litora torquent per conubia nostra,<br/> per inceptos himenaeos. Praesent auctor purus<br/> luctus enim egestas, ac scelerisque ante pulvinar. </p>
+      <p id='more'>Show more</p>
+      <Box> <table id='box5'></table></Box>
+      <p id='all'>All connection</p>
+      <p id='layer'>Worlds First Layer 2 Fashion Marketplace</p>
+      <Box ><table id='flesh'></table></Box>
+      <Box><table id='left'></table></Box>
+      <Box><table id='nft'></table></Box>
+      <p id='collection'>All Collections</p>
+      <p id='ver'>Verified Brands</p>
+      <p id='artist'>Verified Artists</p>
+      <p id='drop'>New Drops</p>
+      <p id='live'>Live Shows</p>
 
 
 

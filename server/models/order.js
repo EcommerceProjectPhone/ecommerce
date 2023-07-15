@@ -10,7 +10,6 @@ const Order = sequelize.define('order', {
 });
 
 Order.belongsTo(User);
-User.hasMany(Order)
 
 
 module.exports = Order;
