@@ -4,10 +4,11 @@ import './style.css';
 import axios from 'axios';
 import Footer from '../Footer.jsx';
 import Navbar from '../Navbar.jsx';
-const BuyProduct = () => {
+const BuyProduct = ({userId}) => {
   const [product, setProduct] = useState([]);
   const [search, setSearch] = useState([]);
-  // const [filteredProducts, setFilteredProducts] = useState([]);
+  
+
 
 
 
@@ -29,7 +30,7 @@ const BuyProduct = () => {
 
   const [data , setDAta] = useState(0)
 
- 
+
   
   const filterBuyName = (event) => {
     const filteredProducts = search.filter((elem) =>
@@ -64,6 +65,7 @@ const BuyProduct = () => {
         <span> <input type="text" onChange={filterBuyName}  /> </span>
         </p>
       </div>
+      
       <Link to="/add"><button className='btn'>Seller</button>
 </Link>
       <div className="grid-container">

@@ -16,7 +16,7 @@ const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('client');
-  const [profileUrl, setprofileUrl] = useState('');
+  const [imgUrl, setimgUrl] = useState('');
 
   const paperStyle = { padding: '30px 20px', width: 300, margin: '20px auto' };
   const headerStyle = { margin: 0 };
@@ -26,7 +26,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://127.0.0.1:3000/users/register', { username, email, password, role, profileUrl });
+      const response = await axios.post('http://127.0.0.1:3000/users/register', { username, email, password, role, imgUrl });
       const token = response.data.token;
       console.log(token);
 
@@ -55,7 +55,7 @@ const Signup = () => {
       );
 
       const imageUrl = response.data.secure_url;
-      setprofileUrl(imageUrl);
+      setimgUrl(imageUrl);
       console.log(imageUrl);
     } catch (err) {
       console.log(err);

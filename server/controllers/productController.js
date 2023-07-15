@@ -19,68 +19,52 @@ const getAllProducts = (req, res) => {
 };
 const getOne = async (req, res) => {
   try {
-    const productId = req.params.id;
-    const product = await Product.findByPk(productId, {
+    const { UserId } = req.params;
+    const products = await Product.findAll({
+      where: { UserId },
       include: [User],
     });
 
-    if (product) {
-      res.status(200).json(product);
+    if (products.length > 0) {
+      res.status(200).json(products);
     } else {
-      res.status(404).json({ error: 'Product not found' });
+      res.status(404).json({ error: 'No products found for the given UserId' });
     }
   } catch (error) {
-    console.error('Error retrieving product:', error);
+    console.error('Error retrieving products:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
-}
+};
+
 
 // Create a new product
-// const createProduct = async (req, res) => {
-//     const { name, description, price, stock, imageUrl } = req.body;
-//     const { UserId } = req.params;
+const createProduct = async (req, res) => {
+    const { name, description, price, stock, imageUrl } = req.body;
+    const { UserId } = req.params;
 
-//     try {
-//       const uploadResult = await cloudinary.uploader.upload(imageUrl, {
-//         folder: "ecomphone"
-//       });
+    try {
+      const uploadResult = await cloudinary.uploader.upload(imageUrl, {
+        folder: "ecomphone"
+      });
   
-//       const newProduct = await Product.create({
-//         name: name,
-//         description: description,
-//         price: price,
-//         stock: stock,
-//         imageUrl: uploadResult.secure_url,
-//         UserId: UserId,
-//       });
+      const newProduct = await Product.create({
+        name: name,
+        description: description,
+        price: price,
+        stock: stock,
+        imageUrl: uploadResult.secure_url,
+        UserId: UserId,
+      });
   
-//       res.json(newProduct);
-//     } catch (error) {
-//       console.error('Error creating product:', error);
-//       res.status(500).json({ error: 'Internal server error' });
-//     }
-//     console.log(imageUrl);
-//   };
-
-const createProduct = (req, res) => {
-  const { name, description, price, stock, imageUrl } = req.body;
-  const { UserId } = req.params;
-  Product.create({
-    name: name,
-    description: description,
-    price: price,
-    stock: stock,
-    imageUrl: imageUrl,
-    UserId: UserId
-  })
-    .then((product) => {
-      res.json(product);
-    })
-    .catch((error) => {
+      res.json(newProduct);
+    } catch (error) {
       console.error('Error creating product:', error);
       res.status(500).json({ error: 'Internal server error' });
     }
-  )}
+    console.log(imageUrl);
+  };
+
+
 
 // Update a product
 const updateProduct = (req, res) => {

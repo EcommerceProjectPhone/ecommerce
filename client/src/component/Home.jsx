@@ -5,7 +5,7 @@ import Footer from '../../src/component/Footer.jsx';
 import { Box } from '@mui/material';
 import axios from 'axios';
 
-const Home = () => {
+const Home = ({userId}) => {
   const [data,setData]=useState([])
 const getData=()=>{
   axios.get("")
@@ -17,12 +17,12 @@ console.log(err);
 })
 
 }
-
+console.log("user",userId);
 
 
   return (
     <div>
-      <Navbar />
+      <Navbar user ={userId} />
       <p className='phone'>phone are the
 Spirit of Fashion</p>
 <p id='main'>Main Collection</p>
