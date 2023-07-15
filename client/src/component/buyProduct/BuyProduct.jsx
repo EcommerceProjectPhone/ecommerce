@@ -7,6 +7,7 @@ import Navbar from '../Navbar.jsx';
 const BuyProduct = () => {
   const [product, setProduct] = useState([]);
   const [search, setSearch] = useState([]);
+  // const [filteredProducts, setFilteredProducts] = useState([]);
 
 
 
@@ -57,12 +58,11 @@ const BuyProduct = () => {
         </span>
         <p className="price">Price :
         <h1>{data}</h1>
-        <span> <input type="range" min="0" max="100" step="1" value={data} onChange={(e)=>setDAta(e.target.value)} /> </span>
+        <span> <input type="range" min="0" max="6000" step="1" value={data} onChange={(e)=>setDAta(e.target.value)} /> </span>
         </p>
-        <p className="price">Name :
+        <p className="name">Name :
         <span> <input type="text" onChange={filterBuyName}  /> </span>
         </p>
-
       </div>
       <Link to="/add"><button className='btn'>Seller</button>
 </Link>

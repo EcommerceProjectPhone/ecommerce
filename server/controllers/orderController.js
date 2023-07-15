@@ -15,38 +15,36 @@ const getAllOrders = (req, res) => {
     });
 };
 
-// // Assuming you have an Express route/controller file
+const getOne = async (req, res) => {
+  try {
+    const orderId = req.params.id;
+    const order = await Order.findByPk(orderId, {
+      include: [User],
+    });
 
-// const User = require('path-to-your-User-model'); // Replace with the path to your User model
-
-// // ...
-
-// const users = {
-//   getOneUser: (username, cb) => {
-//     User.findOne({ where: { username } })
-//       .then(result => {
-//         cb(null, result);
-//       })
-//       .catch(err => {
-//         cb(err, null);
-//       });
-//   }
-// };
-
-// // ...
+    if (order) {
+      res.status(200).json(order);
+    } else {
+      res.status(404).json({ error: 'order not found' });
+    }
+  } catch (error) {
+    console.error('Error retrieving order:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+}
 
 
 // add a new order
 const createOrder = (req, res) => {
   const { orderDate, totalAmount, shippingAddress, paymentStatus } = req.body;
-  const { userId } = req.params;
+  const { UserId } = req.params;
 
   Order.create({
     orderDate: orderDate,
     totalAmount: totalAmount,
     shippingAddress: shippingAddress,
     paymentStatus: paymentStatus,
-    userId: userId,
+    UserId: UserId,
   })
     .then((order) => {
       res.json(order);
@@ -61,7 +59,7 @@ const createOrder = (req, res) => {
 // Update an order
 const updateOrder = (req, res) => {
   const orderId = req.params.id;
-  const { orderDate, totalAmount, shippingAddress, paymentStatus, userId } = req.body;
+  const { orderDate, totalAmount, shippingAddress, paymentStatus, UserId } = req.body;
 
   Order.update(
     {
@@ -69,7 +67,7 @@ const updateOrder = (req, res) => {
       totalAmount: totalAmount,
       shippingAddress: shippingAddress,
       paymentStatus: paymentStatus,
-      userId: userId,
+      UserId: UserId,
     },
     {
       where: {
@@ -109,4 +107,5 @@ module.exports = {
   createOrder,
   updateOrder,
   deleteOrder,
+  getOne
 };

@@ -29,7 +29,6 @@ User.init(
     },
     coverUrl: {
       type: DataTypes.STRING,
-      allowNull: false
     },
     bio : DataTypes.STRING
   },

@@ -16,7 +16,7 @@ const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('client');
-  const [imgUrl, setImgUrl] = useState('');
+  const [profileUrl, setprofileUrl] = useState('');
 
   const paperStyle = { padding: '30px 20px', width: 300, margin: '20px auto' };
   const headerStyle = { margin: 0 };
@@ -26,7 +26,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://127.0.0.1:3000/users/register', { username, email, password, role, imgUrl });
+      const response = await axios.post('http://127.0.0.1:3000/users/register', { username, email, password, role, profileUrl });
       const token = response.data.token;
       console.log(token);
 
@@ -35,30 +35,7 @@ const Signup = () => {
       console.error('Register Error:', error);
     }
   };
-  const handleImageUpload = async (e) => {
-    const file = e.target.files[0];
-    const formData = new FormData();
-    formData.append('file', file);
-    formData.append('upload_preset', 'paypalscard');
-
-    try {
-      const response = await axios.post(
-        'https://api.cloudinary.com/v1_1/dgcdmrj7x/image/upload',
-        formData,
-        {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
-        }
-      );
-
-      const imageUrl = response.data.secure_url;
-      setImgUrl(imageUrl);
-      console.log(imageUrl);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+ 
 
   const handleImageUpload = async (e) => {
     const file = e.target.files[0];
@@ -78,7 +55,7 @@ const Signup = () => {
       );
 
       const imageUrl = response.data.secure_url;
-      setImgUrl(imageUrl);
+      setprofileUrl(imageUrl);
       console.log(imageUrl);
     } catch (err) {
       console.log(err);

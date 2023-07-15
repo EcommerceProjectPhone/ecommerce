@@ -5,7 +5,6 @@ import Home from './component/Home.jsx';
 import Login from '../src/component/login';
 import Signup from './component/Signup.jsx';
 import Pr from './component/index.jsx';
-
 import AddProduct from "./component/addProduct/AddProduct.jsx";
 import BuyProduct from "./component/buyProduct/BuyProduct.jsx";
 import UpdateProduct from "./component/addProduct/UpdateProduct.jsx";

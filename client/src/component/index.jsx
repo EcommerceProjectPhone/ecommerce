@@ -16,7 +16,7 @@ console.log(user);
             .then((res) => { setUser(res.data) })
             .catch((err) => console.log(err))
     }, [updated,state])
-
+console.log("aaaaa");
     const changeProfile = async (id) => {
         const form = new FormData()
         form.append("file", file)
