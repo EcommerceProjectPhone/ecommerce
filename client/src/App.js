@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
+
 import '../src/component/App.css';
+
 import Home from './component/Home.jsx';
 import Login from './component/login.jsx';
 import Signup from './component/Signup.jsx';
@@ -18,7 +20,6 @@ const App = () => {
     setUserId(newUserId);
     setUserRole(newUserRole)
   };
-   console.log(userId)
   return (
     <Routes>
       <Route path="/" element={<Navigate to="/login" />} />

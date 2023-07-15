@@ -30,6 +30,7 @@ const usersRoute = require('./routes/user.routes');
 
 
 app.use('/users', usersRoute);
+
 app.use("/api/profile",profileRoutes)
 
 
