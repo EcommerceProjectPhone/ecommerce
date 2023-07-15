@@ -10,7 +10,7 @@ const UpdateProduct = () => {
         description: '',
         price: 0,
         stock: 0,
-        imageUrl: null,
+        
       });
       const navigate = useNavigate();
       const params = useParams()

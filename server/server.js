@@ -3,10 +3,7 @@ const cors = require("cors")
 const cookieParser = require("cookie-parser")
 const sequelize = require("./database/db")
 
-const cookieParser = require("cookie-parser")
-
 const productRoute = require("./routes/product.routes")
-const usersRoute = require('./routes/user.routes');
 const profileRoutes=require("./routes/profile.routes")
 PORT  = 3000 ; 
 
@@ -24,6 +21,10 @@ app.use(cookieParser());
 
 
 app.use("/product",productRoute)
+const orderRoute = require('./routes/order.routes');
+app.use('/order', orderRoute);
+
+const usersRoute = require('./routes/user.routes');
 
 
 

@@ -24,6 +24,10 @@ const Pr = ({ userId, UserRole }) => {
         axios.get(`http://127.0.0.1:3000/api/profile/get/${id}`)
             .then((res) => { setUser(res.data) })
             .catch((err) => console.log(err))
+
+    }, [updated,state])
+console.log("aaaaa");
+
     }
 
     const getProducts = (id) => {
@@ -31,6 +35,7 @@ const Pr = ({ userId, UserRole }) => {
             .then((res) => setProducts(res.data))
             .catch((err) => console.log(err))
     }
+
 
     const changeProfile = async (id) => {
         const form = new FormData()

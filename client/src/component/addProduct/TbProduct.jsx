@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-const TbProduct = () => {
+const TbProduct = ({user}) => {
     const [product, setProduct] = useState([]);
-
-
+const userid = user
+console.log("useidTableau",userid);
 
   useEffect(() => {
     const fetchAllProduct = async () => {
       try {
-        const res = await axios.get('http://localhost:3000/product/getAll');
+        const res = await axios.get(`http://localhost:3000/product/getOne/${userid}`);
         setProduct(res.data);
 
       } catch (err) {
@@ -19,7 +19,7 @@ const TbProduct = () => {
     fetchAllProduct();
     
 
-  }, []);
+  }, [userid]);
   const handleDelete = async (id) => {
     try {
       await axios.delete(`http://127.0.0.1:3000/product/${id}`);
