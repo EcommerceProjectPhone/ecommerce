@@ -4,13 +4,17 @@ import Profile from './profile.jsx'
 import Posts from './post.jsx'
 import Photos from './photos.jsx'
 import "./profile.css"
-const Pr = () => {
+
+
+
+const Pr = ({userId , UserRole}) => {
+    console.log(userId,UserRole) ;
     const [user, setUser] = useState([])
     const [state, setState] = useState(false)
     const [file, setFile] = useState("")
     const [change, setChange] = useState(false)
     const [updated, setUpdated] = useState(false)
-console.log(user);
+
     useEffect(() => {
         axios.get(`http://127.0.0.1:3000/api/profile/get/1`)
             .then((res) => { setUser(res.data) })

@@ -23,7 +23,7 @@ User.init(
       type: DataTypes.ENUM('admin', 'seller', 'client'),
       defaultValue: 'client'
     },
-    profileUrl: {
+    imgUrl: {
       type: DataTypes.STRING,
       allowNull: false
     },
