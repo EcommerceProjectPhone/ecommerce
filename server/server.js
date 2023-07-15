@@ -29,6 +29,7 @@ app.use("/product",productRoute)
 
 
 app.use('/users', usersRoute);
+
 app.use("/api/profile",profileRoutes)
 
 
