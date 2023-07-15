@@ -18,10 +18,10 @@ const App = () => {
     setUserId(newUserId);
     setUserRole(newUserRole)
   };
-   console.log(userId)
+
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/login" />} />
+      
       <Route path="/login" element={<Login handleLogin={handleLogin} />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/home" element={<Home  />} />

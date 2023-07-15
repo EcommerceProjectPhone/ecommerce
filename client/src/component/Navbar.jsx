@@ -6,14 +6,14 @@ const Navbar = () => {
   return (
     <div className="header">
       <div className="logo">Logo</div>
-      <Link to="/">
+      <Link to="/home">
       <div className="home">Home</div>
       </Link>
       <Link to="/product">
       <div className="explore">Products</div>
       </Link>
       <Link to="/profile">
-      <div className="personal-collection">Personal Collection</div>
+      <div className="personal-collection">Profil</div>
       </Link>
       <div
         className="SearchBar"

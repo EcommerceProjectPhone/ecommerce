@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faCamera } from '@fortawesome/free-solid-svg-icons';
 import axios from "axios";
 import "./profile.css"
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 const Profile = ({ user, setFile, change, setChange, setUpdated, updated, changeProfile,changeCover  }) => {
     const [show, setShow] = useState(false)
@@ -22,7 +24,10 @@ const Profile = ({ user, setFile, change, setChange, setUpdated, updated, change
 
 
     return (
+        <div>
+            <Navbar />
         <div className="card">
+            
             <div className="card__img">
                 <img src={user.coverUrl} alt="Card Image" />
             </div>
@@ -78,6 +83,9 @@ const Profile = ({ user, setFile, change, setChange, setUpdated, updated, change
                     <div>
                     </div>
                 </div></button>
+                
+        </div>
+        <Footer/>
         </div>
     )
 }
