@@ -1,0 +1,276 @@
+
+.header {
+    position: absolute;
+    width: 1515px;
+    height: 101px;
+  
+    left: 0px;
+    top: 0px;
+    background: linear-gradient(113.49deg, #984D38 -30.3%, #181E41 58.12%);
+  }
+  /* Logo */
+  .header .logo {
+    position: absolute;
+    left: 3.54%;
+    right: 90.83%;
+    top: 27.72%;
+    bottom: 30.69%;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 42px;
+    color: #6C5DD3;
+  }
+  
+  /* Home */
+  .header .home {
+    position: absolute;
+    width: 43px;
+    height: 19px;
+    left: 570.5px;
+    top: 41px;
+  
+    font-family: 'SF Pro Display';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+  }
+  
+  /* Personal Collection */
+  .header .personal-collection {
+    position: absolute;
+    width: 137px;
+    height: 19px;
+    left: 760.5px;
+    top: 41px;
+  
+    font-family: 'SF Pro Display';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+  }
+  
+  /* Search Bar */
+   .search-bar {
+    position: absolute;
+    left: -1%;
+    right: 53.19%;
+    top: 25.74%;
+    bottom: 26.73%;
+    width: 1550px;
+    
+  
+  }
+  
+  /* Rectangle 1 */
+   .rectangle-1 {
+    box-sizing: border-box;
+    position: absolute;
+    left: 11.94%;
+    right: 63.19%;
+    top: 25.74%;
+    bottom: 26.73%;
+    border: 0.5px solid rgba(255, 255, 255, 0.5);
+    border-radius: 184px;
+    width: 358px;
+     height: 48px;
+    top: 26px;
+    left: 172px;
+    flex-shrink: 0;
+  
+  }
+  
+  /* Vector */
+  .header .vector {
+    position: absolute;
+    left: 12.99%;
+    right: 85.56%;
+    top: 39.6%;
+    bottom: 39.6%;
+  
+  
+  }
+  
+  /* Search Items, Fashion, Collection, and Users */
+  .header .search-items {
+    position: absolute;
+    right: 65.62%;
+    bottom: 41.58%;
+    font-family: 'SF Pro Display';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.03em;
+    color: #FFFFFF;
+    width: 272px;
+  height: 17px;
+  top: 42px;
+  left: 223px;
+  
+  }
+  
+  /* Ellipse 258 */
+  .header .ellipse-258 {
+    position: absolute;
+    left: 94.72%;
+    right: 2.22%;
+    top: 28.71%;
+    bottom: 27.72%;
+  
+  }
+  
+  /* Vector */
+  .header .vector-2 {
+    position: absolute;
+    left: 94.03%;
+    right: 5%;
+    top: 54.46%;
+    bottom: 36.63%;
+    background: #FFFFFF;
+    border-radius: 0.5px;
+    transform: rotate(180deg);
+  }
+  
+  /* Rectangle 1932 */
+  .header .rectangle-1932 {
+    position: absolute;
+    visibility: hidden;
+    left: 40.07%;
+    right: 56.94%;
+    top: 61.39%;
+    bottom: 36.63%;
+    background: linear-gradient(214.02deg, #B75CFF 6.04%, #671AE4 92.95%);
+    border-radius: 6px;
+  }
+  
+  /* Group 48095727 */
+  .header .group-48095727 {
+    position: absolute;
+    width: 66.5px;
+    height: 19px;
+    left: 653.5px;
+    top: 41px;
+  }
+  
+   
+   .header .explore {
+    position: absolute;
+    width: 53px;
+    height: 19px;
+    left: 653.5px;
+    top: 41px;
+  
+    font-family: 'SF Pro Display';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+  } 
+  
+  /* Vector */
+  .header .vector-3 {
+    position: absolute;
+    left: 49.38%;
+    right: 50%;
+    top: 48.51%;
+    bottom: 46.53%;
+    border: 1px solid #FFFFFF;
+  }
+  
+  /* Group 48095728 */
+  .header .group-48095728 {
+    position: absolute;
+    width: 57px;
+    height: 21px;
+    left: 1140px;
+    top: 40px;
+  }
+  
+  /* Vector */
+  .header .vector-4 {
+    position: absolute;
+    left: 79.17%;
+    right: 19.65%;
+    top: 39.6%;
+    bottom: 39.6%;
+    background: #FFFFFF;
+  }
+  
+  /* Vector */
+  .header .vector-5 {
+    position: absolute;
+    left: 81.74%;
+    right: 16.88%;
+    top: 39.6%;
+    bottom: 40.59%;
+    
+  }
+  
+  /* Drops */
+  .header .drops {
+    position: absolute;
+    width: 43px;
+    height: 19px;
+    left: 938px;
+    top: 41px;
+  
+    font-family: 'SF Pro Display';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+  }
+  
+  /* Group 48095729 */
+  .header .group-48095729 {
+    position: absolute;
+    width: 51px;
+    height: 19px;
+    left: 1021px;
+    top: 41px;
+  }
+  
+  /* More */
+  .header .more {
+    position: absolute;
+    width: 37px;
+    height: 19px;
+    left: 1021px;
+    top: 41px;
+  
+    font-family: 'SF Pro Display';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+  }
+  
+  /* Vector */
+  .header .vector-6 {
+    position: absolute;
+    left: 73.82%;
+    right: 25.56%;
+    top: 49.5%;
+    bottom: 45.54%;
+    border: 1px solid #FFFFFF;
+  }
+  
+  /* Frame 48095481 */
+  .header .frame-48095481 {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+  }

@@ -10,6 +10,9 @@ import Pr from './component/index.jsx';
 import AddProduct from './component/addProduct/AddProduct.jsx';
 import BuyProduct from './component/buyProduct/BuyProduct.jsx';
 import UpdateProduct from './component/addProduct/UpdateProduct.jsx';
+import AdminDashBord from './component/AdminDashBord.jsx';
+import AddCompany from './component/AddCompany.jsx';
+import CompanyProfile from './component/CompanyProfile.jsx';
 
 const App = () => {
   const [token, setToken] = useState('');
@@ -45,30 +48,25 @@ const App = () => {
     sessionStorage.removeItem('userId');
     sessionStorage.removeItem('userRole');
   };
+   console.log(userId)
 
   return (
     <Routes>
       <Route path="/login" element={<Login handleLogin={handleLogin} />} />
       <Route path="/signup" element={<Signup />} />
-      <Route
-        path="/home"
-        element={<Home userId={userId} handleLogout={handleLogout} />}
-      />
-      <Route
-        path="/profile"
-        element={<Pr userId={userId} UserRole={userRole} handleLogout={handleLogout} />}
-      />
-      <Route
-        path="/add"
-        element={<AddProduct userId={userId} UserRole={userRole} handleLogout={handleLogout} />}
-      />
-      <Route
-        path="/product"
-        element={<BuyProduct userId={userId} UserRole={userRole} handleLogout={handleLogout} />}
-      />
-      <Route path="/update/:id" element={<UpdateProduct handleLogout={handleLogout} />} />
+      <Route path="/home" element={<Home userId={userId} />} />
+      <Route path="/profile" element={<Pr userId={userId} UserRole = {UserRole}  />} />
+      <Route path="/add" element={<AddProduct userId={userId} UserRole = {UserRole} />} />
+      <Route path="/product" element={<BuyProduct  userId={userId} UserRole = {UserRole}  />} />
+      <Route path="/update/:id" element={<UpdateProduct />} />
+      <Route path="/admin" element={<AdminDashBord />} />
+      <Route path="/addcompany" element={<AddCompany/>}/>
+      <Route path="/company/:id" element={<CompanyProfile/>}/>
     </Routes>
-  );
-};
+  )
+}
+
+  
+
 
 export default App;
