@@ -88,7 +88,6 @@ const Profile = ({handleLogout, user, setFile, change, setChange, setUpdated, up
                 </div></button>
                 
         </div>
-        <Footer/>
         </div>
     )
 }

@@ -5,7 +5,7 @@ import axios from 'axios';
 import Navbar from '../Home/Navbar.jsx';   
 import "./admin.css"
 
-const CompanyProfile = ({handleLogout}) => {
+const CompanyProfile = ({userId , handleLogout}) => {
   const [companyy, setCompanyy] = useState(null)
   const [showUpdate, setShowUpdate] = useState(false)
   const [term,setTerm]=useState("")
@@ -51,7 +51,7 @@ const delet=(id)=>{
 
   return (
     <div>
-    <Navbar handleLogout={handleLogout}/>
+    <Navbar userId={userId} handleLogout={handleLogout}/>
       <div className="containerr">
         <div className="profilee">
           <img src={companyy.Image} className="nin" alt="Company Logo" />
