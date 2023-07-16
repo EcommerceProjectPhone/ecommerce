@@ -85,7 +85,7 @@ const UpdateProduct = () => {
           </label>
         </p>
         <p>
-          <button onClick={updateProduct} className="btn">
+          <button onClick={updateProduct} className="btnn">
             Update Product
           </button>
         </p>

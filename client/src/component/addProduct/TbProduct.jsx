@@ -29,7 +29,7 @@ console.log("useidTableau",userid);
     }
   }
   return (
-    <div className='tbb'>
+    <div className='tbbb'>
         <table className="table table-bordered table-dark">
   <thead>
     <tr>
@@ -56,12 +56,12 @@ console.log("useidTableau",userid);
       <td>{elem.price}</td>
     <td>
 
-<button  type="button" className="btn btn-success  ">
+<button  type="button" className="btnn btn-success  ">
   <Link to={`/update/${elem.id}`}>Update</Link>
   </button>
     </td>
 <td>
-    <button type="button" className="btn btn-danger"  onClick={() => handleDelete(elem.id)}>Delete</button>
+    <button type="button" className="btnn btn-danger"  onClick={() => handleDelete(elem.id)}>Delete</button>
 
 </td>
 
