@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'; 
 import Navbar from '../../src/component/Navbar.jsx';   
 import Footer from './Footer.jsx';
+import "./admin.css"
 
 const AdminDashBord=()=>{
     const [company,setCompany]=useState([])
@@ -27,7 +28,7 @@ const AdminDashBord=()=>{
     <tr>
       <th>Company</th>
       <th>Rating</th>
-      <th>Country</th>
+      <th> </th>
     </tr>
       {company.map((e, index) => (
         <tr key={index}>
