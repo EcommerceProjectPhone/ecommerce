@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate , useParams } from 'react-router-dom';
 import './style.css';
 import axios from 'axios';
-import Navbar from '../Navbar.jsx';
+import Navbar from '../Home/Navbar.jsx';
 
 const UpdateProduct = ({handleLogout}) => {
     const [products, setProducts] = useState({

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'; 
-import Navbar from '../../src/component/Navbar.jsx';   
-import Footer from './Footer.jsx';
+import Navbar from '../Home/Navbar.jsx';   
+import Footer from '../Home/Footer.jsx';
 import "./admin.css"
 
 const AdminDashBord=()=>{

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
-import Navbar from '../../src/component/Navbar.jsx';   
+import Navbar from '../Home/Navbar.jsx';   
 import "./admin.css"
 
 const AddCompany =()=>{

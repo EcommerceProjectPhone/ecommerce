@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Navbar from '../../src/component/Navbar.jsx';   
+import Navbar from '../Home/Navbar.jsx';   
 import "./admin.css"
 
 const CompanyProfile = () => {

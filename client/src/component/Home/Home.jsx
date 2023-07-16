@@ -1,13 +1,12 @@
 import React,{useState,useEffect}  from 'react';
-import Navbar from '../../src/component/Navbar.jsx';
-import Product from '../../src/component/Product.jsx';
-import Footer from '../../src/component/Footer.jsx';
-
+import Navbar from './Navbar.jsx';
+import Product from './Product.jsx';
+import Footer from './Footer.jsx';
 import { Box } from '@mui/material';
 import axios from 'axios';
-import "../Home.css"
+import "./Home.css"
 
-const Home = ({userId}) => {
+const Home = ({userId , handleLogout }) => {
   const [data,setData]=useState([])
 const getData=()=>{
   axios.get("")
