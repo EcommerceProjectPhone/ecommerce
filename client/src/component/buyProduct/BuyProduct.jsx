@@ -4,11 +4,25 @@ import './style.css';
 import axios from 'axios';
 import Footer from '../Footer.jsx';
 import Navbar from '../Navbar.jsx';
-const BuyProduct = ({userId ,handleLogout}) => {
+const BuyProduct = ({userId,UserRole}) => {
+
   const [product, setProduct] = useState([]);
   const [search, setSearch] = useState([]);
-  
+  console.log("userrole",UserRole);
 
+
+
+const handleClick = async (e, productId) => {
+  e.preventDefault();
+  try {
+    const response = await axios.post(`http://localhost:3000/order/add/${userId}`, {
+      productId: productId,
+    });
+    console.log(response.data);
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 
 
@@ -27,6 +41,7 @@ const BuyProduct = ({userId ,handleLogout}) => {
     
 
   }, []);
+
 
   const [data , setDAta] = useState(0)
 
@@ -61,13 +76,18 @@ const BuyProduct = ({userId ,handleLogout}) => {
         <h1>{data}</h1>
         <span> <input type="range" min="0" max="6000" step="1" value={data} onChange={(e)=>setDAta(e.target.value)} /> </span>
         </p>
-        <p className="name">Name :
+        <p className="price">Name :
         <span> <input type="text" onChange={filterBuyName}  /> </span>
+        
         </p>
+        
       </div>
       
-      <Link to="/add"><button className='btn'>Seller</button>
-</Link>
+       {UserRole !== 'client' && (
+        <Link to="/add">
+          <button className="btnn">Seller</button>
+        </Link>
+      )}
       <div className="grid-container">
 
         {product.map((elem) => {
@@ -88,9 +108,9 @@ const BuyProduct = ({userId ,handleLogout}) => {
                     fill="#FF2525"
                   />
                 </svg>
-                <button href="#" className="btn btn-primary ">
-                  
-                  {elem.price}
+                <button onClick={(e) => handleClick(e, elem.id)} href="#" className="btnn btn-primary ">
+                
+                  {elem.price} $
                 </button>
               </div>
             </div>

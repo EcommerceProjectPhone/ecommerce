@@ -2,13 +2,9 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Box } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
-import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import "../Navbar.css"
 
-import './App.css';
 
-const Navbar = ({ handleLogout }) => {
-
-  const navigate = useNavigate();
 
   const handleLogoutClick = () => {
     handleLogout();

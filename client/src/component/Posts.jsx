@@ -7,7 +7,7 @@ const Posts = ({ user, products }) => {
                 return (
                     <div className="posts" key={i}>
                         <div className="f-card" >
-                            <div className="header">
+                            <div className="header2">
                                 <div className="options"><i className="fa fa-chevron-down"></i></div>
                                 <img className="co-logo" src={user.imgUrl} />
                                 <div className="co-name"><a href="#">{user.username}</a></div>

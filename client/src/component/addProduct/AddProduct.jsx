@@ -119,7 +119,7 @@ const AddProduct = ({handleLogout, userId }) => {
           <input name="imageUrl" type="file" onChange={handleImageUpload} />
         </p>
         <p>
-          <button onClick={handleClick} className="btn">
+          <button onClick={handleClick} className="btnn">
             Add product
           </button>
         </p>
