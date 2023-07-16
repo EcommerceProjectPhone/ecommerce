@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Navbar from '../Home/Navbar.jsx';
 import Footer from '../Home/Footer.jsx';
-import "./admin.css";
+// import "./admin.css";
 
 const AdminDashBord = ({ handleLogout, UserRole, userId }) => {
   console.log(UserRole);
@@ -65,7 +65,10 @@ const AdminDashBord = ({ handleLogout, UserRole, userId }) => {
           Sorry, you are not allowed to access this page as a {UserRole}.
         </div>
       )}
-      <Footer />
+      <div className='footer-id'>
+        <Footer />
+      </div>
+      
     </div>
   );
 };

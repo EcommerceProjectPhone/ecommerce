@@ -227,7 +227,14 @@ body {
 .access {
   background-color: #ffcccc;
   padding: 10px;
+  padding-top: 200px;
   color: #ff0000;
   font-weight: bold;
   text-align: center;
+}
+
+.footer-id{
+  position: absolute;
+  margin-top: 500px;
+  width: 100%;
 }
