@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
 import Navbar from '../../src/component/Navbar.jsx';   
+import "./admin.css"
 
 const AddCompany =()=>{
 const [companyy,setCompanyy]=useState([])
@@ -13,7 +14,7 @@ const [companyy,setCompanyy]=useState([])
     axios.post("http://localhost:3000/company", { company,rating,review,createdAt,Image})
     .then((res)=>{
         setCompanyy([...companyy,res.data])
-        navigate("/heey")
+        navigate("/admin")
     })
     .catch((err)=>console.log(err))
   }

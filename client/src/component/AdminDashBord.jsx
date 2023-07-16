@@ -49,7 +49,7 @@ const AdminDashBord=()=>{
       </tr>
       ))}
       </table>
-      <Link to="/add1">
+      <Link to="/addcompany">
       <button id='iiid' className='btn'>ADD</button>
       </Link>
     </div>

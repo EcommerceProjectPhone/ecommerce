@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from '../../src/component/Navbar.jsx';   
+import "./admin.css"
 
 const CompanyProfile = () => {
   const [companyy, setCompanyy] = useState(null)
@@ -22,7 +23,7 @@ const CompanyProfile = () => {
     axios.put(`http://localhost:3000/company/${id}`,{ company,rating,review})
     .then((res)=>{
         setCompanyy(null)
-        navigate("/heey") 
+        navigate("/admin") 
     })
     .catch((err)=>console.log(err))
 }
@@ -30,7 +31,7 @@ const delet=(id)=>{
     axios.delete(`http://localhost:3000/company/${id}`)
     .then((res)=>{
         setCompanyy(null)       
-        navigate("/heey")
+        navigate("/admin")
     })
     .catch((err)=>console.log(err))
 }
