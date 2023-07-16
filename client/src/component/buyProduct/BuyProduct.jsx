@@ -4,7 +4,7 @@ import './style.css';
 import axios from 'axios';
 import Footer from '../Footer.jsx';
 import Navbar from '../Navbar.jsx';
-const BuyProduct = ({userId}) => {
+const BuyProduct = ({userId ,handleLogout}) => {
   const [product, setProduct] = useState([]);
   const [search, setSearch] = useState([]);
   
@@ -41,7 +41,7 @@ const BuyProduct = ({userId}) => {
 
   return (
     <div>
-      <Navbar/>
+      <Navbar handleLogout = {handleLogout}/>
       <div className="grid-item item2">
         <svg
           className="layout"

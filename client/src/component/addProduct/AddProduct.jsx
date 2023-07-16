@@ -5,7 +5,7 @@ import './style.css';
 import Navbar from '../Navbar.jsx';
 import TbProduct from './TbProduct.jsx';
 
-const AddProduct = ({ userId }) => {
+const AddProduct = ({handleLogout, userId }) => {
   const [products, setProducts] = useState({
     name: '',
     description: '',
@@ -64,7 +64,7 @@ const AddProduct = ({ userId }) => {
 
   return (
     <div>
-      <Navbar />
+      <Navbar handleLogout={handleLogout} />
       <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
 
       <form className="w3-container w3-card-4 dvv" action="/action_page.php">

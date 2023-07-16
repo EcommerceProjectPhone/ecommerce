@@ -7,7 +7,8 @@ import "./profile.css"
 
 
 
-const Pr = ({ userId, UserRole }) => {
+const Pr = ({ userId, UserRole , handleLogout }) => {
+    console.log("userprofile" ,userId);
     const [user, setUser] = useState([])
     const [state, setState] = useState(false)
     const [file, setFile] = useState("")
@@ -24,10 +25,6 @@ const Pr = ({ userId, UserRole }) => {
         axios.get(`http://127.0.0.1:3000/api/profile/get/${id}`)
             .then((res) => { setUser(res.data) })
             .catch((err) => console.log(err))
-
-    }, [updated,state])
-console.log("aaaaa");
-
     }
 
     const getProducts = (id) => {
@@ -64,7 +61,7 @@ console.log("aaaaa");
     }
     return (
         <div>
-            <Profile id={id} user={user} changeCover={changeCover} changeProfile={changeProfile} setFile={setFile} change={change} setChange={setChange} updated={updated} setUpdated={setUpdated} />
+            <Profile handleLogout={handleLogout} id={id} user={user} changeCover={changeCover} changeProfile={changeProfile} setFile={setFile} change={change} setChange={setChange} updated={updated} setUpdated={setUpdated} />
             <div class="float-parent-element">
                 <div class="float-child-element">
                 <Photos  className='red' products={products} />

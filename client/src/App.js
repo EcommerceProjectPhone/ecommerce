@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 import '../src/component/App.css';
@@ -14,23 +14,59 @@ import UpdateProduct from './component/addProduct/UpdateProduct.jsx';
 const App = () => {
   const [token, setToken] = useState('');
   const [userId, setUserId] = useState('');
-  const [UserRole, setUserRole] = useState('');
+  const [userRole, setUserRole] = useState('');
+
+  useEffect(() => {
+    const storedUserId = sessionStorage.getItem('userId');
+    const storedUserRole = sessionStorage.getItem('userRole');
+
+    if (storedUserId && storedUserRole) {
+      setUserId(storedUserId);
+      setUserRole(storedUserRole);
+    }
+  }, []);
+
   const handleLogin = (newToken, newUserId, newUserRole) => {
     setToken(newToken);
     setUserId(newUserId);
-    setUserRole(newUserRole)
+    setUserRole(newUserRole);
+
+    // Store user ID and role in sessionStorage
+    sessionStorage.setItem('userId', newUserId);
+    sessionStorage.setItem('userRole', newUserRole);
+  };
+
+  const handleLogout = () => {
+    setToken('');
+    setUserId('');
+    setUserRole('');
+
+    // Remove user ID and role from sessionStorage
+    sessionStorage.removeItem('userId');
+    sessionStorage.removeItem('userRole');
   };
 
   return (
     <Routes>
-      
       <Route path="/login" element={<Login handleLogin={handleLogin} />} />
       <Route path="/signup" element={<Signup />} />
-      <Route path="/home" element={<Home userId={userId} />} />
-      <Route path="/profile" element={<Pr userId={userId} UserRole = {UserRole}  />} />
-      <Route path="/add" element={<AddProduct userId={userId} UserRole = {UserRole} />} />
-      <Route path="/product" element={<BuyProduct  userId={userId} UserRole = {UserRole}  />} />
-      <Route path="/update/:id" element={<UpdateProduct />} />
+      <Route
+        path="/home"
+        element={<Home userId={userId} handleLogout={handleLogout} />}
+      />
+      <Route
+        path="/profile"
+        element={<Pr userId={userId} UserRole={userRole} handleLogout={handleLogout} />}
+      />
+      <Route
+        path="/add"
+        element={<AddProduct userId={userId} UserRole={userRole} handleLogout={handleLogout} />}
+      />
+      <Route
+        path="/product"
+        element={<BuyProduct userId={userId} UserRole={userRole} handleLogout={handleLogout} />}
+      />
+      <Route path="/update/:id" element={<UpdateProduct handleLogout={handleLogout} />} />
     </Routes>
   );
 };
