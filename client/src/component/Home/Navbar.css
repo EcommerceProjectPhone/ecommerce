@@ -274,3 +274,9 @@
     padding: 10px;
     gap: 10px;
   }
+
+  .Avatar {
+    position: absolute;
+    top: -18px;
+    right: 30px;
+  }

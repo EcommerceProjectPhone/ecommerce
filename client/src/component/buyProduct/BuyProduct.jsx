@@ -56,7 +56,7 @@ const handleClick = async (e, productId) => {
 
   return (
     <div>
-      <Navbar handleLogout = {handleLogout}/>
+      <Navbar userId={userId} handleLogout = {handleLogout}/>
       <div className="grid-item item2">
         <svg
           className="layout"

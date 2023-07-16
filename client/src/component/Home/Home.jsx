@@ -39,7 +39,7 @@ console.log("user",userId);
 
   return (
     <div>
-      <Navbar user={userId} handleLogout={handleLogout}/>
+      <Navbar userId={userId} handleLogout={handleLogout}/>
       <p className='phone'>Phones are the Spirit of Fashion</p>
       <p id='main'>Main Collection</p>
       <p id='market'>Creators Market</p>

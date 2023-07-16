@@ -1,12 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Box } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import axios from "axios";
 import "./Navbar.css";
 
-const Navbar = ({ handleLogout }) => {
+const Navbar = ({  handleLogout, userId }) => {
   const navigate = useNavigate();
+  const [avatarUrl, setAvatarUrl] = useState("");
+
+  useEffect(() => {
+    const fetchAvatarUrl = async () => {
+      try {
+        const response = await axios.get(`http://127.0.0.1:3000/users/getOne/${userId}`);
+        const imgUrl = response.data.imgUrl;
+        console.log(imgUrl)
+        setAvatarUrl(imgUrl);
+      } catch (error) {
+        console.error("Error fetching avatar URL:", error);
+      }
+    };
+
+    fetchAvatarUrl();
+  }, [userId]);
 
   const handleLogoutClick = () => {
     handleLogout();
@@ -43,15 +60,14 @@ const Navbar = ({ handleLogout }) => {
           position: "absolute",
         }}
       >
-        {/* Search bar code here */}
       </div>
       <Link to="/admin">
         <div className="more">More</div>
       </Link>
       <div className="vector-6">
-        <Avatar
+        <Avatar 
           className="Avatar"
-          src="https://www.nj.com/resizer/zovGSasCaR41h_yUGYHXbVTQW2A=/1280x0/smart/cloudfront-us-east-1.images.arcpublishing.com/advancelocal/SJGKVE5UNVESVCW7BBOHKQCZVE.jpg"
+          src={avatarUrl}
           sx={{ display: "inline-block" }}
         />
       </div>

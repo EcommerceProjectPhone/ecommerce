@@ -4,7 +4,7 @@ import './style.css';
 import axios from 'axios';
 import Navbar from '../Home/Navbar.jsx';
 
-const UpdateProduct = ({handleLogout}) => {
+const UpdateProduct = ({userId,handleLogout}) => {
     const [products, setProducts] = useState({
         name: '',
         description: '',
@@ -31,7 +31,7 @@ const UpdateProduct = ({handleLogout}) => {
     }
   return (
     <div>
-      <Navbar handleLogout={handleLogout} />
+      <Navbar userId={userId}  handleLogout={handleLogout} />
       <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
 
       <form  className="w3-container w3-card-4 dvv" action="/action_page.php">

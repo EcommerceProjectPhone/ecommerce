@@ -64,7 +64,7 @@ const AddProduct = ({handleLogout, userId }) => {
 
   return (
     <div>
-      <Navbar handleLogout={handleLogout} />
+      <Navbar userId={userId}  handleLogout={handleLogout} />
       <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
 
       <form className="w3-container w3-card-4 dvv" action="/action_page.php">
