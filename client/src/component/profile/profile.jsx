@@ -2,8 +2,12 @@ import React, {  useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faCamera } from '@fortawesome/free-solid-svg-icons';
 import axios from "axios";
+import Navbar from "../Home/Navbar";
+import Footer from "../Home/Footer";
 import "./pr.css"
-const Profile = ({ user, setFile, change, setChange, setUpdated, updated, changeProfile,changeCover,id}) => {
+
+
+const Profile = ({handleLogout, user, setFile, change, setChange, setUpdated, updated, changeProfile,changeCover,id}) => {
     const [show, setShow] = useState(false)
     const [hide, setHide] = useState(true)
     const [name, setName] = useState('')
@@ -23,7 +27,10 @@ const Profile = ({ user, setFile, change, setChange, setUpdated, updated, change
 
 
     return (
+        <div>
+            <Navbar handleLogout={handleLogout} />
         <div className="card">
+            
             <div className="card__img">
                 <img src={user.coverUrl} alt="Card Image" />
             </div>
@@ -79,6 +86,9 @@ const Profile = ({ user, setFile, change, setChange, setUpdated, updated, change
                     <div>
                     </div>
                 </div></button>
+                
+        </div>
+        <Footer/>
         </div>
     )
 }

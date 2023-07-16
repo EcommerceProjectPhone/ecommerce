@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Navbar from '../../src/component/Navbar.jsx';   
+import Navbar from '../Home/Navbar.jsx';   
 import "./admin.css"
 
-const CompanyProfile = () => {
+const CompanyProfile = ({handleLogout}) => {
   const [companyy, setCompanyy] = useState(null)
   const [showUpdate, setShowUpdate] = useState(false)
   const [term,setTerm]=useState("")
@@ -51,7 +51,7 @@ const delet=(id)=>{
 
   return (
     <div>
-    <Navbar/>
+    <Navbar handleLogout={handleLogout}/>
       <div className="containerr">
         <div className="profilee">
           <img src={companyy.Image} className="nin" alt="Company Logo" />

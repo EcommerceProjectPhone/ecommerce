@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
-import Navbar from '../../src/component/Navbar.jsx';   
+import Navbar from '../Home/Navbar.jsx';   
 import "./admin.css"
 
-const AddCompany =()=>{
+const AddCompany =({userId,handleLogout})=>{
 const [companyy,setCompanyy]=useState([])
   const [term,setTerm]=useState("")
   const navigate = useNavigate()
@@ -35,7 +35,7 @@ const [companyy,setCompanyy]=useState([])
   }
     return(
       <div>
-      <Navbar/>
+      <Navbar  userId={userId}  handleLogout = {handleLogout}/>
         <div className='caard'>
         <h2 className='hhhe'>ADD COMPANY</h2>
         <p className='addd'>company :</p>

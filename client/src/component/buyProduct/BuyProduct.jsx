@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './style.css';
 import axios from 'axios';
-import Footer from '../Footer.jsx';
-import Navbar from '../Navbar.jsx';
-const BuyProduct = ({userId,UserRole}) => {
+import Footer from '../Home/Footer.jsx';
+import Navbar from '../Home/Navbar.jsx';
+const BuyProduct = ({userId,UserRole,handleLogout}) => {
 
   const [product, setProduct] = useState([]);
   const [search, setSearch] = useState([]);
@@ -56,7 +56,7 @@ const handleClick = async (e, productId) => {
 
   return (
     <div>
-      <Navbar/>
+      <Navbar userId={userId} handleLogout = {handleLogout}/>
       <div className="grid-item item2">
         <svg
           className="layout"

@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './style.css';
-import Navbar from '../Navbar.jsx';
+import Navbar from '../Home/Navbar.jsx';
 import TbProduct from './TbProduct.jsx';
 
-const AddProduct = ({ userId }) => {
+const AddProduct = ({handleLogout, userId }) => {
   const [products, setProducts] = useState({
     name: '',
     description: '',
@@ -64,7 +64,7 @@ const AddProduct = ({ userId }) => {
 
   return (
     <div>
-      <Navbar />
+      <Navbar userId={userId}  handleLogout={handleLogout} />
       <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
 
       <form className="w3-container w3-card-4 dvv" action="/action_page.php">
