@@ -1,4 +1,4 @@
-  // models/User.js
+
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../database/db');
 
@@ -32,7 +32,6 @@ User.init(
     },
     bio : DataTypes.STRING
   },
-
   {
     sequelize,
     modelName: 'User'

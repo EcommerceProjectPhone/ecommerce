@@ -76,14 +76,16 @@ const handleClick = async (e, productId) => {
         <h1>{data}</h1>
         <span> <input type="range" min="0" max="6000" step="1" value={data} onChange={(e)=>setDAta(e.target.value)} /> </span>
         </p>
-        <p className="name">Name :
+        <p className="price">Name :
         <span> <input type="text" onChange={filterBuyName}  /> </span>
+        
         </p>
+        
       </div>
       
        {UserRole !== 'client' && (
         <Link to="/add">
-          <button className="btn">Seller</button>
+          <button className="btnn">Seller</button>
         </Link>
       )}
       <div className="grid-container">
@@ -106,9 +108,9 @@ const handleClick = async (e, productId) => {
                     fill="#FF2525"
                   />
                 </svg>
-                <button onClick={(e) => handleClick(e, elem.id)} href="#" className="btn btn-primary ">
+                <button onClick={(e) => handleClick(e, elem.id)} href="#" className="btnn btn-primary ">
                 
-                  {elem.price}
+                  {elem.price} $
                 </button>
               </div>
             </div>

@@ -1,3 +1,5 @@
+
+
 const express = require('express');
 const cors = require("cors")
 const cookieParser = require("cookie-parser")
@@ -18,7 +20,8 @@ app.use(cookieParser());
 
 
 
-
+const companyRoute=require("./routes/Companies.routes")
+app.use("/company",companyRoute)
 
 app.use("/product",productRoute)
 const orderRoute = require('./routes/order.routes');
@@ -51,3 +54,5 @@ sequelize.authenticate()
   });
   const RatingRoute = require("./routes/rating.routes")
 app.use("/rating",RatingRoute)
+
+
