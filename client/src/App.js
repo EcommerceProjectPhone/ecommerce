@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
+import "./Navbar.css"
+import "./Footer.css"
+import "./Home.css"
 import Home from './component/Home.jsx';
 import Login from '../src/component/login';
 import Signup from './component/Signup.jsx';
