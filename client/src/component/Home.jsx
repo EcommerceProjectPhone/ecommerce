@@ -1,13 +1,28 @@
-import React from 'react';
+import React,{useState}  from 'react';
 import Navbar from '../../src/component/Navbar.jsx';
 import Product from '../../src/component/Product.jsx';
 import Footer from '../../src/component/Footer.jsx';
 import { Box } from '@mui/material';
+import axios from 'axios';
 
-const Home = () => {
+const Home = ({userId}) => {
+  const [data,setData]=useState([])
+const getData=()=>{
+  axios.get("")
+.then((response)=>{
+setData(response.data)
+})
+.catch((err)=>{
+console.log(err);
+})
+
+}
+console.log("user",userId);
+
+
   return (
     <div>
-      <Navbar />
+      <Navbar user ={userId} />
       <p className='phone'>phone are the
 Spirit of Fashion</p>
 <p id='main'>Main Collection</p>
@@ -30,8 +45,10 @@ Spirit of Fashion</p>
 </div>
 
 
-      <Product />
-      <p id='about'>About Us</p>
+      <Product  />
+      <div id='about'>
+      <p >About Us</p>
+      </div>
       
       <p id='us'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
       <p id='speak'>Fashion That Speaks</p>

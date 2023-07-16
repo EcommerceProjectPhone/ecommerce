@@ -1,6 +1,5 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../database/db');
-
 const User = require('./user');
 
 const Product = sequelize.define('product', {
@@ -11,8 +10,6 @@ const Product = sequelize.define('product', {
   imageUrl: DataTypes.STRING,
 });
 
-User.hasMany(Product, { foreignKey: 'userId' });
-Product.belongsTo(User, { foreignKey: 'userId' });
-
+Product.belongsTo(User);
 
 module.exports = Product;

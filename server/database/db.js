@@ -5,8 +5,7 @@ const sequelize = new Sequelize('ecommerce', 'ahmed', 'Root123!', {
 
   host: 'localhost',
   dialect: 'mysql',
-  logging: false,
-  sync: false,
+  logging: false
 });
 
 
