@@ -5,6 +5,7 @@ import Footer from '../../src/component/Footer.jsx';
 
 import { Box } from '@mui/material';
 import axios from 'axios';
+import "../Home.css"
 
 const Home = ({userId}) => {
   const [data,setData]=useState([])

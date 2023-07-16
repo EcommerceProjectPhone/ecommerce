@@ -4,7 +4,8 @@ import Posts from './Posts.jsx'
 import Photos from './photos.jsx'
 import Profile from "./profile.jsx"
 import "./profile.css"
-
+import NavBar from "./Navbar.jsx"
+import Footer from "./Footer.jsx"
 
 
 const Pr = ({ userId, UserRole }) => {
@@ -60,6 +61,9 @@ const Pr = ({ userId, UserRole }) => {
     
     return (
         <div>
+            <div id='navbarcss'>
+                <NavBar/>
+            </div>
             <Profile id={id} user={user} changeCover={changeCover} changeProfile={changeProfile} setFile={setFile} change={change} setChange={setChange} updated={updated} setUpdated={setUpdated} />
             <div class="float-parent-element">
                 <div class="float-child-element">
@@ -69,8 +73,10 @@ const Pr = ({ userId, UserRole }) => {
                 <Posts className='yellow' products={products}  id={id} user={user} />
                 </div>
             </div>
+            <div id='footercss'>
+                <Footer/>
+            </div>
         </div>
-        
     )
 }
 
