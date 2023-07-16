@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom';    
-
+import { Link } from 'react-router-dom'; 
+import Navbar from '../../src/component/Navbar.jsx';   
+import Footer from './Footer.jsx';
 
 const AdminDashBord=()=>{
     const [company,setCompany]=useState([])
@@ -19,29 +20,39 @@ const AdminDashBord=()=>{
     
   return (
     <div>
-    <p>TOP MARKET STATISTICS</p>
+    <Navbar/>
+    <div>
+    <h1 className='claa'>TOP MARKET STATISTICS</h1>
     <table id="customers">
     <tr>
       <th>Company</th>
-      <th>Contact</th>
+      <th>Rating</th>
       <th>Country</th>
     </tr>
       {company.map((e, index) => (
         <tr key={index}>
         <td className='i'>
         <img className='img' src={e.Image}/>
-        <Link to="/add">
+        <Link to={`/company/${e.id}`} key={e.id}>
         <div className='a'>
         {e.company}
         </div>
         </Link>
+        
         </td>
-        <td>{e.rating}</td>
+        <td className='rat'>
+        {e.rating}
+        <img className='iv' src='https://www.iconpacks.net/icons/2/free-rating-star-icon-2793-thumb.png'/>
+        </td>
         <td>hey</td>
       </tr>
       ))}
       </table>
-      <button>ADD</button>
+      <Link to="/add1">
+      <button id='iiid' className='btn'>ADD</button>
+      </Link>
+    </div>
+    <Footer/>
     </div>
   )
 }

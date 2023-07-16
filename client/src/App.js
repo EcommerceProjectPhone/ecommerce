@@ -8,6 +8,9 @@ import Pr from './component/index.jsx';
 import AddProduct from './component/addProduct/AddProduct.jsx';
 import BuyProduct from './component/buyProduct/BuyProduct.jsx';
 import UpdateProduct from './component/addProduct/UpdateProduct.jsx';
+import AdminDashBord from './component/AdminDashBord.jsx';
+import AddCompany from './component/AddCompany.jsx';
+import CompanyProfile from './component/CompanyProfile.jsx';
 
 const App = () => {
   const [token, setToken] = useState('');
@@ -19,7 +22,7 @@ const App = () => {
     setUserRole(newUserRole)
   };
    console.log(userId)
-function App() {
+
   return (
     <Routes>
       <Route path="/" element={<Navigate to="/login" />} />
@@ -30,19 +33,14 @@ function App() {
       <Route path="/add" element={<AddProduct />} />
       <Route path="/product" element={<BuyProduct  userId={userId} UserRole = {UserRole}  />} />
       <Route path="/update/:id" element={<UpdateProduct />} />
+      <Route path="/heey" element={<AdminDashBord />} />
+      <Route path="/add1" element={<AddCompany/>}/>
+      <Route path="/company/:id" element={<CompanyProfile/>}/>
     </Routes>
-  );
-};
-    <BrowserRouter>
-    <div>
-      <Routes>
-         <Route path="/" element={<AdminDashBord />} />
-         <Route path="/add" element={<AddCompany/>}/>
-      </Routes>
-    </div>
-  </BrowserRouter>
+  )
+}
 
   
-}
+
 
 export default App;

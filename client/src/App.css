@@ -251,8 +251,223 @@ body{
 .a{
   margin-top: 10px;
   margin-left: 10px;
-  color: black;
+  color: white;
 }
+.rat{
+  color: white;
+}
+.containerr {
+  padding: 100px 0;
+  
+}
+
+.profilee {
+  margin-top: 90px;
+  margin-left: 592px;
+  max-width: 300px;
+  /* margin: 0 auto; */
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  position: relative;
+  
+  h2 {
+    color: black;
+  }
+  
+  p {
+    color: rgba(black, 0.8)
+  }
+  
+  .imagee {
+    width: 75px;
+    height: 75px;
+    background: red;
+    border-radius: 50%;
+    margin: 0 auto;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    transform-origin: bottom left;
+    box-shadow: 0 3px 15px rgba(black, 0.1);
+    transition: all 0.3s ease-in-out;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  :hover {
+    .image {
+      transform: scale(1.5);
+      border-radius: 10px;
+    }
+}
+}
+.btn {
+  width: 20px;
+  --border-color: linear-gradient(-45deg, #ffae00, #7e03aa, #00fffb);
+  --border-width: .125em;
+  --curve-size: .5em;
+  --blur: 30px;
+  --bg: #080312;
+  --color: #afffff;
+  color: var(--color);
+    /* use position: relative; so that BG is only for .btn */
+  position: relative;
+  isolation: isolate;
+  display: inline-grid;
+  place-content: center;
+  padding: .5em 1.5em;
+  font-size: 17px;
+  border: 0;
+  text-transform: uppercase;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, .6);
+  clip-path: polygon(
+            /* Top-left */
+            0% var(--curve-size),
+
+            var(--curve-size) 0,
+            /* top-right */
+            100% 0,
+            100% calc(100% - var(--curve-size)),
+
+            /* bottom-right 1 */
+            calc(100% - var(--curve-size)) 100%,
+            /* bottom-right 2 */
+            0 100%);
+  transition: color 250ms;
+}
+
+.btn::after,
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.btn::before {
+  background: var(--border-color);
+  background-size: 300% 300%;
+  animation: move-bg7234 5s ease infinite;
+  z-index: -2;
+}
+
+@keyframes move-bg7234 {
+  0% {
+    background-position: 31% 0%
+  }
+
+  50% {
+    background-position: 70% 100%
+  }
+
+  100% {
+    background-position: 31% 0%
+  }
+}
+
+.btn::after {
+  background: var(--bg);
+  z-index: -1;
+  clip-path: polygon(
+            /* Top-left */
+            var(--border-width) 
+            calc(var(--curve-size) + var(--border-width) * .5),
+
+            calc(var(--curve-size) + var(--border-width) * .5) var(--border-width),
+
+            /* top-right */
+            calc(100% - var(--border-width)) 
+            var(--border-width),
+
+            calc(100% - var(--border-width)) 
+            calc(100% - calc(var(--curve-size) + var(--border-width) * .5)),
+
+            /* bottom-right 1 */
+            calc(100% - calc(var(--curve-size) + var(--border-width) * .5)) calc(100% - var(--border-width)),
+            /* bottom-right 2 */
+            var(--border-width) calc(100% - var(--border-width)));
+  transition: clip-path 500ms;
+}
+
+.btn:where(:hover, :focus)::after {
+  clip-path: polygon(
+                /* Top-left */
+                calc(100% - var(--border-width)) 
+
+                calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+    
+                calc(100% - var(--border-width))
+
+                var(--border-width),
+    
+                /* top-right */
+                calc(100% - var(--border-width))
+
+                 var(--border-width),
+    
+                calc(100% - var(--border-width)) 
+
+                calc(100% - calc(var(--curve-size) + var(--border-width) * .5)),
+    
+                /* bottom-right 1 */
+                calc(100% - calc(var(--curve-size) + var(--border-width) * .5)) 
+                calc(100% - var(--border-width)),
+
+                /* bottom-right 2 */
+                calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+                calc(100% - var(--border-width)));
+  transition: 200ms;
+}
+
+.btn:where(:hover, :focus) {
+  color: #fff;
+}
+.caard {
+  width: 700px;
+  height: 410px;
+  margin-top: 208px;
+  background: rgba(17, 24, 39, 1);;
+  border-radius: 26px;
+  transition: border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  margin-left: 402px;
+ }
+
+ .addd{
+  color: white;
+ }
+ .hhhe{
+  color: white;
+  text-align: center;
+ }
+ .inn {
+  color: #8707ff;
+  border: 2px solid #8707ff;
+  border-radius: 10px;
+  padding: 10px 25px;
+  background: transparent;
+  max-width: 190px;
+ }
+ 
+ .inn:active {
+  box-shadow: 2px 2px 15px #8707ff inset;
+ }
+ .claa{
+  text-align: center;
+  color: white;
+  margin-top: 231px;
+ }
+ .oo{
+  width: 30px;
+ }
+ .iv{
+  width: 40px;
+ }
+ #iiid{
+  margin-top: 70px;
+ }
+ .nin{
+  max-width: 243px;
+ }
 /*  */
 .table3{
   width: 294px;
