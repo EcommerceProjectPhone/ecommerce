@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import {  Box } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
+import "../Navbar.css"
 
-import './App.css';
 
 
 

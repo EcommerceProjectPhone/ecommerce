@@ -4,7 +4,8 @@ import Posts from './Posts.jsx'
 import Photos from './photos.jsx'
 import Profile from "./profile.jsx"
 import "./profile.css"
-
+import NavBar from "./Navbar.jsx"
+import Footer from "./Footer.jsx"
 
 
 const Pr = ({ userId, UserRole }) => {
@@ -24,17 +25,13 @@ const Pr = ({ userId, UserRole }) => {
         axios.get(`http://127.0.0.1:3000/api/profile/get/${id}`)
             .then((res) => { setUser(res.data) })
             .catch((err) => console.log(err))
-
     }
-
-    
 
     const getProducts = (id) => {
         axios.get(`http://localhost:3000/api/profile/prod/${id}`)
             .then((res) => setProducts(res.data))
             .catch((err) => console.log(err))
     }
-
 
     const changeProfile = async (id) => {
         const form = new FormData()
@@ -61,8 +58,12 @@ const Pr = ({ userId, UserRole }) => {
             .then((res) => { setState(!state) })
             .catch((err) => alert("failed to post blog"))
     }
+    
     return (
         <div>
+            <div id='navbarcss'>
+                <NavBar/>
+            </div>
             <Profile id={id} user={user} changeCover={changeCover} changeProfile={changeProfile} setFile={setFile} change={change} setChange={setChange} updated={updated} setUpdated={setUpdated} />
             <div class="float-parent-element">
                 <div class="float-child-element">
@@ -72,10 +73,12 @@ const Pr = ({ userId, UserRole }) => {
                 <Posts className='yellow' products={products}  id={id} user={user} />
                 </div>
             </div>
+            <div id='footercss'>
+                <Footer/>
+            </div>
         </div>
-        
     )
-
 }
+
 export default Pr
 
