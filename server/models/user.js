@@ -32,7 +32,6 @@ User.init(
     },
     bio : DataTypes.STRING
   },
-
   {
     sequelize,
     modelName: 'User'
