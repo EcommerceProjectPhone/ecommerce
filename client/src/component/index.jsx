@@ -57,6 +57,7 @@ const Pr = ({ userId, UserRole }) => {
             .then((res) => { setState(!state) })
             .catch((err) => alert("failed to post blog"))
     }
+    
     return (
         <div>
             <Profile id={id} user={user} changeCover={changeCover} changeProfile={changeProfile} setFile={setFile} change={change} setChange={setChange} updated={updated} setUpdated={setUpdated} />
