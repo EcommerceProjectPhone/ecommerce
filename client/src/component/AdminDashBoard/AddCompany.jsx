@@ -10,8 +10,8 @@ const [companyy,setCompanyy]=useState([])
   const navigate = useNavigate()
   const [file,setFile]=useState(null)
   const add=(term)=>{
-    const { company,rating,review,createdAt,Image}=term
-    axios.post("http://localhost:3000/company", { company,rating,review,createdAt,Image})
+    const { company,rating,review,createdAt,Image,sales}=term
+    axios.post("http://localhost:3000/company", { company,rating,review,createdAt,Image,sales})
     .then((res)=>{
         setCompanyy([...companyy,res.data])
         navigate("/admin")
@@ -44,6 +44,7 @@ const [companyy,setCompanyy]=useState([])
         <input className='inn' onChange={(e)=>setTerm({...term, rating:e.target.value})}/>
         <p className='addd'>review :</p>
         <input className='inn' onChange={(e)=>setTerm({...term, review:e.target.value})}/>
+        <input className='inn' placeholder="Add the sales"  onChange={(e)=>setTerm({...term, sales:e.target.value})}/>
         <input className='inn' type='file'  onChange={(e) => setFile(e.target.files[0])} />
         <button className='btn' onClick={uploadImg} >upload !</button>
         <button className='btn' onClick={()=>add(term)}>add</button>

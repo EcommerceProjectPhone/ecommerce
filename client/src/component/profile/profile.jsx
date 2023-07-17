@@ -76,7 +76,7 @@ const Profile = ({handleLogout, user, setFile, change, setChange, setUpdated, up
                 if (hide) {
                     setHide(!hide);
                 } else {
-                    editProfile(1);
+                    editProfile(id);
                     setHide(!hide);
 
                 }

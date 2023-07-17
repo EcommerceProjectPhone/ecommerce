@@ -9,6 +9,7 @@ const Companies = sequelize.define('companies', {
   review: DataTypes.STRING,
   createdAt: DataTypes.DATE,
   Image: DataTypes.STRING,
+  sales:DataTypes.STRING,
 })
 
 Companies.belongsTo(User)

@@ -33,7 +33,7 @@ const AdminDashBord = ({ handleLogout, UserRole, userId }) => {
               <tr>
                 <th>Company</th>
                 <th>Rating</th>
-                <th></th>
+                <th>sales</th>
               </tr>
             </thead>
             <tbody>
@@ -51,7 +51,9 @@ const AdminDashBord = ({ handleLogout, UserRole, userId }) => {
                     {e.rating}
                     <img className='iv' src='https://www.iconpacks.net/icons/2/free-rating-star-icon-2793-thumb.png' alt="rating" />
                   </td>
-                  <td>hey</td>
+                  <td className='rat'>
+                     {e.sales}
+                     <img className='iv' src='https://cdn-icons-png.flaticon.com/512/4305/4305512.png'/></td>
                 </tr>
               ))}
             </tbody>

@@ -25,13 +25,14 @@ const getOneCompany = async (req, res) => {
 
 const addCompany = async (req, res) => {
   try {
-    const {company, rating, review, createdAt, Image} = req.body
+    const {company, rating, review, createdAt, Image,sales} = req.body
     const newCompany = await Companies.create({
       company,
       rating,
       review,
       createdAt,
       Image,
+      sales
     })
     res.status(200).json({ message: 'Company added successfully', newCompany })
   } catch (error) {
