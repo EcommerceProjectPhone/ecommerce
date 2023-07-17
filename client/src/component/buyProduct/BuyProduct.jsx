@@ -2,11 +2,27 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './style.css';
 import axios from 'axios';
-import Footer from '../Footer.jsx';
-import Navbar from '../Navbar.jsx';
-const BuyProduct = () => {
+import Footer from '../Home/Footer.jsx';
+import Navbar from '../Home/Navbar.jsx';
+const BuyProduct = ({userId,UserRole,handleLogout}) => {
+
   const [product, setProduct] = useState([]);
   const [search, setSearch] = useState([]);
+  console.log("userrole",UserRole);
+
+
+
+const handleClick = async (e, productId) => {
+  e.preventDefault();
+  try {
+    const response = await axios.post(`http://localhost:3000/order/add/${userId}`, {
+      productId: productId,
+    });
+    console.log(response.data);
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 
 
@@ -26,9 +42,10 @@ const BuyProduct = () => {
 
   }, []);
 
+
   const [data , setDAta] = useState(0)
 
- 
+
   
   const filterBuyName = (event) => {
     const filteredProducts = search.filter((elem) =>
@@ -39,7 +56,7 @@ const BuyProduct = () => {
 
   return (
     <div>
-      <Navbar/>
+      <Navbar userId={userId} handleLogout = {handleLogout}/>
       <div className="grid-item item2">
         <svg
           className="layout"
@@ -57,15 +74,20 @@ const BuyProduct = () => {
         </span>
         <p className="price">Price :
         <h1>{data}</h1>
-        <span> <input type="range" min="0" max="100" step="1" value={data} onChange={(e)=>setDAta(e.target.value)} /> </span>
+        <span> <input type="range" min="0" max="6000" step="1" value={data} onChange={(e)=>setDAta(e.target.value)} /> </span>
         </p>
         <p className="price">Name :
         <span> <input type="text" onChange={filterBuyName}  /> </span>
+        
         </p>
-
+        
       </div>
-      <Link to="/add"><button className='btn'>Seller</button>
-</Link>
+      
+       {UserRole !== 'client' && (
+        <Link to="/add">
+          <button className="btnn">Seller</button>
+        </Link>
+      )}
       <div className="grid-container">
 
         {product.map((elem) => {
@@ -86,9 +108,9 @@ const BuyProduct = () => {
                     fill="#FF2525"
                   />
                 </svg>
-                <button href="#" className="btn btn-primary ">
-                  
-                  {elem.price}
+                <button onClick={(e) => handleClick(e, elem.id)} href="#" className="btnn btn-primary ">
+                
+                  {elem.price} $
                 </button>
               </div>
             </div>

@@ -5,13 +5,19 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import axios from 'axios';
+
 const Login = ({ handleLogin }) => {
-  const navigate = useNavigate ();
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const paperStyle = { padding: 20, height: '70vh', width: 280, margin: '20px auto' };
-  const avatarStyle = { backgroundColor: '#1bbd7e'};
+  const paperStyle = {
+    padding: 20,
+    height: '70vh',
+    width: 280,
+    margin: '20px auto',
+  };
+  const avatarStyle = { backgroundColor: '#1bbd7e' };
   const btnstyle = { margin: '8px 0' };
 
   const handleSubmit = async (e) => {
@@ -19,13 +25,9 @@ const Login = ({ handleLogin }) => {
     try {
       const response = await axios.post('http://127.0.0.1:3000/users/login', { email, password });
       const token = response.data.token;
-      handleLogin(token);
-      var payload = JSON.parse(window.atob(token.split('.')[1])); 
-      console.log(payload.role);
-      if(payload.role === 'client'){
-        navigate('/home');
-      }
-     
+      var payload = JSON.parse(window.atob(token.split('.')[1]));
+      handleLogin(token, payload.userId, payload.role);
+      navigate(`/home`);
     } catch (error) {
       console.error('Login Error:', error);
     }
@@ -63,13 +65,10 @@ const Login = ({ handleLogin }) => {
             label="Remember me"
           />
           <Button type="submit" color="primary" variant="contained" style={btnstyle} fullWidth>
-            Sign in
+            Sign In
           </Button>
           <Typography>
-            <Link to="/signup">Forgot password?</Link>
-          </Typography>
-          <Typography>
-            Do you have an account? <Link to="/signup">Sign Up</Link>
+            <Link to="/signup">Don't have an account? Sign Up</Link>
           </Typography>
         </form>
       </Paper>

@@ -1,4 +1,4 @@
-  // models/User.js
+
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../database/db');
 
@@ -29,7 +29,6 @@ User.init(
     },
     coverUrl: {
       type: DataTypes.STRING,
-      
     },
     bio : DataTypes.STRING
   },

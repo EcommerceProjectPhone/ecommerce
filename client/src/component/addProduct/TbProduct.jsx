@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-const TbProduct = () => {
+const TbProduct = ({user}) => {
     const [product, setProduct] = useState([]);
-
-
+const userid = user
+console.log("useidTableau",userid);
 
   useEffect(() => {
     const fetchAllProduct = async () => {
       try {
-        const res = await axios.get('http://localhost:3000/product/getAll');
+        const res = await axios.get(`http://localhost:3000/product/getOne/${userid}`);
         setProduct(res.data);
 
       } catch (err) {
@@ -19,7 +19,7 @@ const TbProduct = () => {
     fetchAllProduct();
     
 
-  }, []);
+  }, [userid]);
   const handleDelete = async (id) => {
     try {
       await axios.delete(`http://127.0.0.1:3000/product/${id}`);
@@ -29,7 +29,7 @@ const TbProduct = () => {
     }
   }
   return (
-    <div className='tbb'>
+    <div className='tbbb'>
         <table className="table table-bordered table-dark">
   <thead>
     <tr>
@@ -56,12 +56,12 @@ const TbProduct = () => {
       <td>{elem.price}</td>
     <td>
 
-<button  type="button" className="btn btn-success  ">
+<button  type="button" className="btnn btn-success  ">
   <Link to={`/update/${elem.id}`}>Update</Link>
   </button>
     </td>
 <td>
-    <button type="button" className="btn btn-danger"  onClick={() => handleDelete(elem.id)}>Delete</button>
+    <button type="button" className="btnn btn-danger"  onClick={() => handleDelete(elem.id)}>Delete</button>
 
 </td>
 

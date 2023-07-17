@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './style.css';
-import Navbar from '../Navbar.jsx';
+import Navbar from '../Home/Navbar.jsx';
 import TbProduct from './TbProduct.jsx';
 
-const AddProduct = () => {
+const AddProduct = ({handleLogout, userId }) => {
   const [products, setProducts] = useState({
     name: '',
     description: '',
@@ -13,19 +13,30 @@ const AddProduct = () => {
     stock: 0,
     imageUrl: null,
   });
+
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const storedUserId = localStorage.getItem('userId');
+    if (storedUserId) {
+      setProducts((prev) => ({ ...prev, userId: storedUserId }));
+    }
+  }, []);
+
   const handleChange = (e) => {
     setProducts((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
+
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:3000/product/add', products);
+      await axios.post(`http://localhost:3000/product/add/${userId}`, products);
       navigate('/product');
     } catch (err) {
       console.log(err);
     }
   };
+
   const handleImageUpload = async (e) => {
     const file = e.target.files[0];
     const form = new FormData();
@@ -53,10 +64,10 @@ const AddProduct = () => {
 
   return (
     <div>
-      <Navbar />
+      <Navbar userId={userId}  handleLogout={handleLogout} />
       <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
 
-      <form  className="w3-container w3-card-4 dvv" action="/action_page.php">
+      <form className="w3-container w3-card-4 dvv" action="/action_page.php">
         <p>
           <label className="txxt">
             <h3>Name product :</h3>
@@ -108,12 +119,12 @@ const AddProduct = () => {
           <input name="imageUrl" type="file" onChange={handleImageUpload} />
         </p>
         <p>
-          <button onClick={handleClick} className="btn">
+          <button onClick={handleClick} className="btnn">
             Add product
           </button>
         </p>
       </form>
-      <TbProduct/>
+      <TbProduct user ={userId} />
     </div>
   );
 };
