@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
 import Navbar from '../Home/Navbar.jsx';   
+import Footer from '../Home/Footer.jsx';
+
 import "./admin.css"
 
 const AddCompany =({userId,handleLogout})=>{
@@ -49,6 +51,7 @@ const [companyy,setCompanyy]=useState([])
         <button className='btn' onClick={uploadImg} >upload !</button>
         <button className='btn' onClick={()=>add(term)}>add</button>
         </div>
+        <Footer/>
         </div>
     )
 }

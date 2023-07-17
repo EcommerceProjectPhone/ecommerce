@@ -10,6 +10,7 @@ import UpdateProduct from './component/addProduct/UpdateProduct.jsx';
 import AdminDashBord from './component/AdminDashBoard/AdminDashBord.jsx';
 import AddCompany from './component/AdminDashBoard/AddCompany.jsx';
 import CompanyProfile from './component/AdminDashBoard/CompanyProfile.jsx';
+import AllUsers from './component/AdminDashBoard/AllUsers.jsx'
 
 const App = () => {
   const [token, setToken] = useState('');
@@ -81,6 +82,10 @@ const App = () => {
       <Route
         path="/company/:id"
         element={<CompanyProfile userId={userId} UserRole={userRole} handleLogout={handleLogout}  />}
+      />
+       <Route
+        path="/allUsers"
+        element={<AllUsers userId={userId} UserRole={userRole} handleLogout={handleLogout}  />}
       />
     </Routes>
   );

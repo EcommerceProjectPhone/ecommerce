@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+
 import Navbar from '../Home/Navbar.jsx';
 import Footer from '../Home/Footer.jsx';
 // import "./admin.css";
@@ -60,6 +61,9 @@ const AdminDashBord = ({ handleLogout, UserRole, userId }) => {
           </table>
           <Link to="/addcompany">
             <button id='iiid' className='btn'>ADD</button>
+          </Link>
+          <Link to="/allUsers">
+            <button id='iiid' className='btn'>Users</button>
           </Link>
         </div>
       ) : (
