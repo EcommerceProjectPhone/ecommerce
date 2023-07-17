@@ -243,7 +243,7 @@
     position: absolute;
     width: 37px;
     height: 19px;
-    left: 1021px;
+    left: 995px;
     top: 41px;
   
     font-family: 'SF Pro Display';
@@ -261,7 +261,6 @@
     right: 25.56%;
     top: 49.5%;
     bottom: 45.54%;
-    border: 1px solid #FFFFFF;
   }
   
   /* Frame 48095481 */
@@ -278,5 +277,5 @@
   .Avatar {
     position: absolute;
     top: -18px;
-    right: 30px;
+    left: 70px;
   }

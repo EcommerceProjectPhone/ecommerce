@@ -111,7 +111,9 @@ console.log("user",userId);
       <Box> <table className='table2'></table></Box>
       <p className='new'>Upcoming Creators</p>
       <Box>
-        <table className='table3'></table>
+        <table className='table3'>
+        
+        </table>
       </Box>
       <Box>
         <table className='table4'></table>

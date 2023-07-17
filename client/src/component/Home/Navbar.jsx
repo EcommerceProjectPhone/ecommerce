@@ -50,7 +50,7 @@ const Navbar = ({  handleLogout, userId }) => {
       <Link to="/profile">
         <div className="personal-collection">Profile</div>
       </Link>
-      <div
+      {/* <div
         className="SearchBar"
         style={{
           width: 358,
@@ -60,7 +60,7 @@ const Navbar = ({  handleLogout, userId }) => {
           position: "absolute",
         }}
       >
-      </div>
+      </div> */}
       <Link to="/admin">
         <div className="more">More</div>
       </Link>
